@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+Top=$(git rev-parse --show-toplevel)
 worker() {
 gawk 'BEGIN {  
          q="\""
@@ -21,15 +22,30 @@ gawk 'BEGIN {
   END     { if (In) print "````"  }'
 } 
 
+main() {
+  arg = $1
+  file=$(basename $arg)
+  stem="${file%%.*}"
+  out=$Top/docs/${stem}.md
+  if [ "$arg" -nt "$out" ]; then
+    echo "# $arg ==> $out"
+    (
+    cat  $Top/etc/header.md $Top/etc/toc.md
+    cat $1 | worker  
+    cat $Top/etc/footer.md 
+    ) > $out
+  fi
+  
+  git add $Top/docs/${stem}.md
+  
+}
 
-stem="${1%%.*}"
-
-(
-cat  ../etc/header.md ../etc/toc.md
-cat $1 | worker  
-cat ../etc/footer.md 
-) > ../docs/${stem}.md
-
-git add ../docs/${stem}.md
+if [ -n "$1" ]; then
+  main $1
+else
+  for f in $Top/src/*.py; do
+    main $f
+  done
+fi
 git commit -am as
 
