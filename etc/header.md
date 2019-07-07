@@ -1,5 +1,5 @@
 
-# Knead= ethically-aligned design
+# Knead= Know the New Ethically-Aligned Design
 
 
 

@@ -42,10 +42,12 @@ main() {
 
 if [ -n "$1" ]; then
   main $1
+  git commit -am as
 else
   for f in $Top/src/*.py; do
     main $f
   done
+  git commit -am as
+  git push
 fi
-git commit -am as
 

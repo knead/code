@@ -1,22 +1,21 @@
 
-# Knead= ethically-aligned design
+# Knead= Know the New Ethically-Aligned Design
 
 
 
 
 <table>
-<tr><td valign=top align=center>
-Text
-</td><td valign=top align=center>
-Code
-</td></tr>
-<tr><td>
-asdas <br>
+<tr><td valign=middle>
+Notes: 
 </td>
 <td>
 </td>
+</tr>
+
+<tr><td valign=middle>
+Code:
+</td>
 <td>
-asas
 </td>
 </tr>
 </table>
@@ -38,20 +37,16 @@ def function(param=None):
 
 ````
 
-The code is laid out to N chars
+The code is laid out to 60 characters wide to enable easy browsing.
+Hence, I do not use `self` in my classes. Instead, I use `i` (which is much shorter).
 
 ````python
 
-#----------1----------2----------3----------4----------5----------6----------7----------
+#----------1----------2----------3----------4----------5----------6
 def function()
+ asdas()
 
 
-````
-
-ok?
-
-ss
-````python
 
 
 ````
