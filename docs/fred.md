@@ -22,27 +22,38 @@ asas
 </table>
 
 
-[!TIP]
-asdas
-sdaasas
+Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
-The quick brown fox[^1] jumped over the lazy dog[^2].
+[^1]: This is the first footnote.
 
-[^1]: Foxes are red
-[^2]: Dogs are usually not red
+[^bignote]: Here's one with multiple paragraphs and code.
 
+       [^f1] 
+Bla bla<sup>[1](#f1)</sup>
+Then from within the footnote, link back to it.
 
-If you take [issue][issues] with any [issues][issues]
-I [issued][issues], grab a tissue.
-I [issued][issues], grab a tissue.
+<b id="f1">1</b> Footnote content here. 
 
-If you find a bug, please report an [issue][issues], or better yet,
+[f1]: sa asd sa asd asd asd asd
+
+sdadas
+<img src="https://latex.codecogs.com/png.latex?{a=1}" alt="{mathcode}">
+asdaads
+asdadas
+<img align=middle 
+src="https://latex.codecogs.com/png.latex?{ -\sum_i p_i\log_2(p_i)}" alt="{mathcode}">
+asdaads
+
+<img src="https://latex.codecogs.com/png.latex?{b=\frac{a}{b}}" alt="{mathcode}">
+
+f you find a bug, please report an [issue][issues], or better yet,
 fix it and submit a [pull request][pulls].
 
 [pulls]: https://github.com/grantwinney/BlogCodeSamples/pulls
 
-[^issues]: asd asd asd asdas asd asdads 
+[issues]: asd asd asd asdas asd asdads 
 
+<a name=issues></a>
 # asdads asas 
 
 Sdasdas asd sadasdas
