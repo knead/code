@@ -24,6 +24,36 @@ asas
 
 
 
+## How to read this code.
+
+The globale `my` (defined in [config](config.py), lists the global options.
+
+The following idiom is used a lot (and sets a parameter from `my`)
+
+````python
+
+def function(param=None):
+  param = param or my.function.param
+  ..
+
+````
+
+The code is laid out to N chars
+
+````python
+
+#----------1----------2----------3----------4----------5----------6----------7----------
+def function()
+
+
+````
+
+ok?
+
+````python
+````
+
+
 ## License
 
 The MIT License (MIT)
