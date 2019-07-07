@@ -19,10 +19,6 @@ gawk 'BEGIN {
                          print "````"  
                      next }       
   ! First { print $0 }       
-  /^\[.*\]:/ { sub(/:/,"",$0); 
-               print "<a name="\"$1"\">" $0 }
-               
-	     }
   END     { if (In) print "````"
             }'
 } 
