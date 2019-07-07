@@ -38,6 +38,8 @@ fix it and submit a [pull request][pulls].
 
 [pulls]:     https://github.com/grantwinney/BlogCodeSamples/pulls
 
+[issues]:   asd asd asd asdas asd asdads 
+
 # asdads asas 
 
 Sdasdas asd sadasdas
