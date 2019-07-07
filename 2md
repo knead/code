@@ -23,7 +23,7 @@ gawk 'BEGIN {
 } 
 
 main() {
-  arg = $1
+  arg=$1
   file=$(basename $arg)
   stem="${file%%.*}"
   out=$Top/docs/${stem}.md
