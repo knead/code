@@ -28,7 +28,7 @@ main() {
   stem="${file%%.*}"
   out=$Top/docs/${stem}.md
   if [ "$arg" -nt "$out" ]; then
-    echo "# $arg ==> $out"
+    echo "# $(filename $arg) ==> docs/$stem.out"
     (
     cat  $Top/etc/header.md $Top/etc/toc.md
     cat $1 | worker  
