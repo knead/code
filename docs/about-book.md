@@ -47,8 +47,9 @@ Code:
  [very](REFS.md#grus--2019)
  [many](REFS.md#duda-2000)
  [other](REFS.md#witten-2016)
- books. What make this book different is two things. Firstly,  we focus on
- at    AI tools that have had much   impact on software
+ books. What make this book different is trhee things. Firstly,  we look
+ at 
+ AI tools that have had much recent   impact on software
  engineering. Specifically, we will talk a lot about data mining algorithms;
  some about optimizers; and a little about theorem provers
  (and we say more about  all these, [below](#3tools)).
