@@ -9,7 +9,7 @@ asdadsa
 
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
 
-[I',,,, a reference-style  xlink](#scully-03)
+[I',,,, a reference-style  xlink](#scully-2003)
 
 [I'm a relative reference to a repository file](../blob/master/LICENSE)
 
@@ -32,8 +32,8 @@ Some text to show that the reference links can follow later.
 
 ## B
 
-asasd
+### Scully 2003
 
-[sculey03](#scully-03) asdas asda sas a
+asdas asda sas a
 
 """
