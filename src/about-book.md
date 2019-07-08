@@ -38,6 +38,8 @@
    A better design, that would have looser coupling would have been to apply some sort of feature weighting to the data, and only connect to the least features that were most influential.
 
 
+
+
    ![](img/couple.png)
 
    While poor software engineering can lead to problems with the AI, the good news is that better SE can lead to better AI. For example, many industrial data scientists make extensive  use of the [Python scikit-learn toolkit](REFS.md#pedregosa-2011) data mining package. Started in 2007 as a Google Summer of Code project by David Cournapeau, numerous releases have appeared following a (approximately) three month cycle, and a thriving international community has been leading the development. At the time of this writing, over the last month, this software has been maintained and extended by dozens of authors, spread around the planet (specifically, excluding merges, 50 authors have pushed 119 commits to master and 119 commits to all branches to make changes thousands of lines of code in  279 files). All this is possible since scikit-learn uses state-of-the-art open source software engineering methods (continuous integration, cloud-based testing with Travis CI, git, github, etc etc). 
