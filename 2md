@@ -45,7 +45,7 @@ if [ -n "$1" ]; then
   main $1
   git commit -am as
 else
-  for f in $Top/src/*.py; do
+  for f in $Top/src/*; do
     main $f
   done
   git commit -am as
