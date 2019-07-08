@@ -80,7 +80,7 @@ Code:
 
    Since good SE can lead to better AI, we devoted many  chapters of this book to industrial data mining pipelines.   Recently we reversed engineering a nine step pipeline for industrial machine learning.  For simplicity's sake, we draw it as steps that run left to right (but in reality, AI is an agile process where we jump around these steps, as required):
 
-<img width=900 src="img/9steps.pdf">
+<img width=900 src="img/9steps.png">
 
    We also surveyed many industrial data scientists to understand how much time they spend on different parts of this pipeline:
 
