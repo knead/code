@@ -1,59 +1,43 @@
 
-# Knead= ethically-aligned design
+<a name=top></a>
+[home](https://github.com/knead/code/blob/master/docs/about-book.md#top)
+[&copy;2019](https://github.com/timm/lisp/blob/master/LICENSE.md) |
+["Tim Menzies"](http://menzies.us)
+<img width=1 height=25 src="https://github.com/timm/lisp/blob/master/etc/img/FFFFFF.png">
+<a href="https://github.com/knead/code/blob/master/docs/LICENSE.md#top">
+<img width=900 src="https://github.com/knead/code/blob/master/etc/img/banner.png" ></a><br>
+[src](http://github.com/knead/code/src) |
+[contrib](https://github.com/timm/lisp/blob/master/CONTRIBUTING.md) |
+[discuss](https://github.com/knead/code/issues)
+
+# SE in the age of AI: an Ethical Approach
 
 
 
 
 <table>
-<tr><td valign=top align=center>
-Text
-</td><td valign=top align=center>
-Code
-</td></tr>
-<tr><td>
-asdas <br>
+<tr><td valign=middle>
+Notes: 
 </td>
 <td>
 </td>
+</tr>
+
+<tr><td valign=middle>
+Code:
+</td>
 <td>
-asas
 </td>
 </tr>
 </table>
 
 
-Here's a simple footnote,[^1] and here's a longer one.[^bignote]
+<!--ts-->
+<!--te-->
 
-[^1]: This is the first footnote.
 
-[^bignote]: Here's one with multiple paragraphs and code.
 
-       [^f1] 
-Bla bla<sup>[1](#f1)</sup>
-Then from within the footnote, link back to it.
 
-<b id="f1">1</b> Footnote content here. 
-
-[f1]: sa asd sa asd asd asd asd
-
-sdadas
-<img src="https://latex.codecogs.com/png.latex?{a=1}" alt="{mathcode}">
-asdaads
-asdadas
-<img align=middle 
-src="https://latex.codecogs.com/png.latex?{ -\sum_i p_i\log_2(p_i)}" alt="{mathcode}">
-asdaads
-
-<img src="https://latex.codecogs.com/png.latex?{b=\frac{a}{b}}" alt="{mathcode}">
-
-f you find a bug, please report an [issue][issues], or better yet,
-fix it and submit a [pull request][pulls].
-
-[pulls]: https://github.com/grantwinney/BlogCodeSamples/pulls
-
-[issues]: asd asd asd asdas asd asdads 
-
-<a name=issues></a>
 # asdads asas 
 
 Sdasdas asd sadasdas
