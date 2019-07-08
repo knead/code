@@ -27,7 +27,7 @@ Some text to show that the reference links can follow later.
 [link text itself]: http://www.reddit.com
 [link fred itself]: http://www.reddit.com
 [link jane itself]: http://www.reddit.com
-
+    
 
 ## B
 
