@@ -40,36 +40,38 @@ Code:
 
  ## About this book
 
- This book is about using better software engineering to build better AI software. Most of our case studies come from our experience in applying AI to software engineering-- which means that this book is about  SE for AI for SE.
+ This book is about using better software engineering to build better AI software. Most of our case studies come from our experience in applying AI to software engineering-- which means that **this book is about  SE for AI for SE**.
 
  AI is a very broad topic, discussed in
  [so](REFS.md#norvig-2009) 
  [very](REFS.md#grus--2019)
  [many](REFS.md#duda-2000)
  [other](REFS.md#witten-2016)
- books. What make this book different is two things. Firstly,  we are looking
- specifically at    AI tools that have had much   impact on software
+ books. What make this book different is two things. Firstly,  we focus on
+ at    AI tools that have had much   impact on software
  engineering. Specifically, we will talk a lot about data mining algorithms;
  some about optimizers; and a little about theorem provers
  (and we say more about  all these, [below](#3tools)).
 
  Secondly, the authors of this book have spent decades applying many data mining methods (primarily for software engineering applications). We share some of that case study experience in this book.
 
- Thirdly, in this book, ethics are a primary design principle.  We assert that the design goals for SE-for-AI must be _ethically-aligned design_ to prioritize human well-being.   It is ethical to improve the profits of your company since that money becomes wages which becomes groceries which becomes dinner so everyone and their kids can sleep content at night.  It is also ethical to change the design of AI software in order to ensure   that (say) the software is not unduly discriminatory towards a particular social group (e.g. some groups characterized by age, race, or gender). To get us going, the  next chapter of this book will review principles of  ethically-aligned design, as well as the algorithms that might support such design.  We suggest to you that when you start a new AI project:
+ Thirdly, in this book, **ethics are a primary design principle**.  We assert that the design goals for SE-for-AI must be _ethically-aligned design_ to prioritize human well-being.   It is ethical to improve the profits of your company since that money becomes wages which becomes groceries which becomes dinner so everyone and their kids can sleep content at night.  It is also ethical to change the design of AI software in order to ensure   that (say) the software is not unduly discriminatory towards a particular social group (e.g. some groups characterized by age, race, or gender). To get us going, the  next chapter of this book will review principles of  ethically-aligned design, as well as the algorithms that might support such design.  We suggest to you that when you start a new AI project:
 
- - Your  first question should not be  be  ``what data miners should I apply to this data?'';
- - Rather, it should be  ``what are the ethical requirements of this development? And how can we best support those requirements?'.
+ - Your  first question should not be  be  "what data miners should I apply to this data?";
+ - Rather, it should be  "what are the ethical requirements of this development? And how can we best support those requirements?".
   
   ## But is "SE for AI" that important?
 
-  It is timely to talk about SE for AI.  AI software is still software. And any  software
-   (be it AI software, or otherwise) needs installation, configuration, maintenance, interfacing to other software, testing, certification,  user support, usability additions, and packaging (for distribution). As shown below, Bill Benton from Redhat [reports that](REFS.md/#benton-2019) that when we look at the data mining pipelines used to distribute and scale AI tools, there is  much overlap between the activities of data scientists and   more traditional activities  like data engineer and application developer. That is,   AI software needs care and feeding by software engineers. 
+  It is timely to talk about SE for AI.  **AI software is still software**. And any  software
+   (be it AI software, or otherwise) needs installation, configuration, maintenance, interfacing to other software, testing, certification,  user support, usability additions, and packaging (for distribution). As shown below, Bill Benton from Redhat [reports that](REFS.md/#benton-2019) that when we look at the data mining pipelines used to distribute and scale AI tools, there is  much overlap between the activities of data scientists and   more traditional activities  like data engineer and application developer. That is,   
+   **AI software needs care and feeding by software engineersi**. 
 
 <p align="center">
   <img  src="img/benton19.png">
 </p>
 
-   Another reason to explore SE for AI is that  most "AI software" is not about AI.   David Sculley  [offers the following  diagram](REFS.md/#sculley-2015) showing the size (in lines of code) of  Google's software suite. Note how small is the AI box (shown in black), buried away in the middle of all the other software.
+   Another reason to explore SE for AI is that  
+   **most "AI software" is not about AI**.   David Sculley  [offers the following  diagram](REFS.md/#sculley-2015) showing the size (in lines of code) of  Google's software suite. Note how small is the AI box (shown in black), buried away in the middle of all the other software.
 
 <p align="center">
   <img  src="img/googleloc.png">
@@ -77,7 +79,8 @@ Code:
 
 
 
-   Since AI software is still software, it follows that poor software engineering can lead to problems with the  AI. Again, David Sculley [offers us an example of this](REFS.md/#sculley-2015).  He reports that Google's machine learning developers used all of the attributes in Google's data dictionaries to learn predictive models about browsing habits. This lead to problems since any subsequent change in the data dictionary meant that all the data mining had to be done, all over again. In software engineering terms, Google had introduce technical debt (i.e. something that will consume maintenance money at some future date) by violating principles of coupling and cohesion. Maintainable systems are loosely coupled (but internally, tightly cohesive). Google's classifiers, on the other hand were tightly coupled with their data dictionaries.
+   Since AI software is still software, it follows that 
+   **poor software engineering leads to poor AI**. Again, David Sculley [offers us an example of this](REFS.md/#sculley-2015).  He reports that Google's machine learning developers used all of the attributes in Google's data dictionaries to learn predictive models about browsing habits. This lead to problems since any subsequent change in the data dictionary meant that all the data mining had to be done, all over again. In software engineering terms, Google had introduce technical debt (i.e. something that will consume maintenance money at some future date) by violating principles of coupling and cohesion. Maintainable systems are loosely coupled (but internally, tightly cohesive). Google's classifiers, on the other hand were tightly coupled with their data dictionaries.
    A better design, that would have looser coupling would have been to apply some sort of feature weighting to the data, and only connect to the least features that were most influential.
 
 <p align="center">
@@ -85,9 +88,10 @@ Code:
 </p>
 
 
-   While poor software engineering can lead to problems with the AI, the good news is that better SE can lead to better AI. For example, many industrial data scientists make extensive  use of the [Python scikit-learn toolkit](REFS.md#pedregosa-2011) data mining package. Started in 2007 as a Google Summer of Code project by David Cournapeau, numerous releases have appeared following a (approximately) three month cycle, and a thriving international community has been leading the development. At the time of this writing, over the last month, this software has been maintained and extended by dozens of authors, spread around the planet (specifically, excluding merges, 50 authors have pushed 119 commits to master and 119 commits to all branches to make changes thousands of lines of code in  279 files). All this is possible since scikit-learn uses state-of-the-art open source software engineering methods (continuous integration, cloud-based testing with Travis CI, git, github, etc etc). 
+   While poor software engineering can lead to problems with the AI, the good news is that 
+   **better SE can lead to better AIi**. For example, many industrial data scientists make extensive  use of the [Python scikit-learn toolkit](REFS.md#pedregosa-2011) data mining package. Started in 2007 as a Google Summer of Code project by David Cournapeau, numerous releases have appeared following a (approximately) three month cycle, and a thriving international community has been leading the development. At the time of this writing, over the last month, this software has been maintained and extended by dozens of authors, spread around the planet (specifically, excluding merges, 50 authors have pushed 119 commits to master and 119 commits to all branches to make changes thousands of lines of code in  279 files). All this is possible since scikit-learn uses state-of-the-art open source software engineering methods (continuous integration, cloud-based testing with Travis CI, git, github, etc etc). 
 
-   Since good SE can lead to better AI, we devoted many  chapters of this book to industrial data mining pipelines.   Recently we reversed engineering a nine step pipeline for industrial machine learning.  For simplicity's sake, we draw it as steps that run left to right (but in reality, AI is an agile process where we jump around these steps, as required):
+   Since good SE can lead to better AI, we devoted many  chapters of this book to industrial data mining pipelines.   Recently we reversed engineering a nine step pipeline for industrial machine learning.  For simplicity's sake, we draw it as steps that run left to right (but in reality, **AI is an agile process** where we jump around these steps, as required):
 
 <p align="center">
   <img  src="img/9steps.png">
@@ -107,7 +111,8 @@ Code:
 |deployment |5.1|           <img  height=20 width=102 src=img/black.png>|
 |monitorig |2.6|            <img  height=20 width=52 src=img/black.png>|
 
-One interesting feature about the above histogram is that most industrial "data mining" is not about mining the data.  We say this since, in  a 35 hour work week, only half a day (5.4.hours) was spent in _training_. This is interesting since most data mining textbooks _only_ talk about training. Hence, if we are going to talk SE for AI, there is a pressing need to discuss all the work that fills up the other four days of the week.  
+One interesting feature about the above histogram is that 
+**most "data mining" is not about mining the data**.  We say this since, in  a 35 hour work week, only half a day (5.4.hours) was spent in _training_. This is interesting since most data mining textbooks _only_ talk about training. Hence, if we are going to talk SE for AI, there is a pressing need to discuss all the work that fills up the other four days of the week.  
 
 ## Structure of this book.
 
@@ -126,14 +131,14 @@ We cannot leave this introductory chapter without some introductory notes on the
 
 ###  <a name=3tools>Data miners, optimizers, theorem provers </a>
 
-_Data mining algorithms_ tell us "what is" in the data. Data miners extract models   from data. For example, from columns of numbers and _programmer experience_, _development language_, and   _number of observed defects_, then a data miner might learn that defects are  more dependent on the experience of the programmer than the language that they use.  Example  data mining algorithms
+**_Data mining algorithms_ tell us "what is" in the datai**. Data miners extract models   from data. For example, from columns of numbers and _programmer experience_, _development language_, and   _number of observed defects_, then a data miner might learn that defects are  more dependent on the experience of the programmer than the language that they use.  Example  data mining algorithms
     are  nearest neighbor algorithms like kNN; clustering algorithms like k-Means and EM; statistical learners like Naive Bayes; equation learners like linear or logistic regression; decision tree learners like C4.5,   and CART; meta-learners like AdaBoost; and many other as well including  Apriori,, PageRank,  neural networks (and deep learners); etc.
 
-_Optimizers_ tell us "what to do". Optimizers look  at models and tell us how changes in something effects something else. Ideally, optimizers also tell us the _least_ we need to do to _most_ improve something. For example, an optimizer might report that defects can are most reduced   using   developers with two years of experience. They might also report that improving experience to three, four, five years (and above) offers little extra reduction in observed defects. Example optimizers include genetic algorithms like NSGA-II, MOEA/D and differential evolution;   sequential model-based optimization methods like FLASH and SMAC; and other approaches such as particle swam optimization, tabu search; and many more besides
+**_Optimizers_ tell us "what to do"**. Optimizers look  at models and tell us how changes in something effects something else. Ideally, optimizers also tell us the _least_ we need to do to _most_ improve something. For example, an optimizer might report that defects can are most reduced   using   developers with two years of experience. They might also report that improving experience to three, four, five years (and above) offers little extra reduction in observed defects. Example optimizers include genetic algorithms like NSGA-II, MOEA/D and differential evolution;   sequential model-based optimization methods like FLASH and SMAC; and other approaches such as particle swam optimization, tabu search; and many more besides
 
 _Theorem provers_ are very specialized tools for finding settings to variables that satisfy the logical constraints of a model. Such a theorem prover might report that  A=true and B=false satisfies the constraint (A and not B).   For example, the constraints of the kernel of the Linux operating system can be expressed as hundreds of thousands of constraints.  When optimizing the design of some new version of Linux (e.g. to try and avoid  modules  with a track record of problems) we can use theorem provers to (a) generate a population of valid designs; and (b) check the validity of a new design. Example theorem provers include  maxWalkSat, pycoSAT, MathSAT, vZ, Z3,  and many more besides.
 
-Note that optimizers are model-based and data miners are data-based. 
+Note that **optimizers are model-based** and **data miners are data-based**. 
 
 - Data miners explore whatever data is available.
 -  Models, on the other hand, can be used to build more data whenever they want, just by running the model some more. 
