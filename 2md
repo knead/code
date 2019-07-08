@@ -28,14 +28,12 @@ main() {
   file=$(basename $arg)
   stem="${file%%.*}"
   out=$Top/docs/${stem}.md
-  if [ "$arg" -nt "$out" ]; then
     echo "# $(basename $arg) ==> docs/$stem.out"
     (
     cat  $Top/etc/header.md $Top/etc/toc.md
     cat $1 | worker  
     cat $Top/etc/footer.md 
     ) > $out
-  fi
   
   git add $Top/docs/${stem}.md
   
