@@ -72,8 +72,7 @@ Code:
 
    We also surveyed many industrial data scientists to understand how much time they spend on different parts of this pipeline:
 
-|   | hours per week |bar |
-|part  |  (mean, approximate)|r chart|
+|part  | hours per week<br>(mean, approximate)|bar chart|
 |------|---------------------------|-----------------------|
 |requirements | 4.4| xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx |
 |colllection        |4.7|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
