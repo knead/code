@@ -8,3 +8,42 @@ thing shta tdont seem to fit... et
 
 
 Besides learning models from data, another important step is to use those models to propose changes that might improve the current situation. Hence whenever we generate a model (via data mining) we then try to take the next step to ask how we can use that model to optimize for user goals. 
+
+
+ (Technical note: In some sense, decisions trees are a clustering algorithm. Whereas most clustering tools (k-means, mini-batch k-means, kd-trees) are unsupervised (do not reflect on the goal(s)), decision trees are supervised algorithms that reflect on the goal to divide the data.)
+
+
+## Technical Notes
+Formally, splitting is called discretization [webb] and recursive splitting is called iterative dichomisation [c45,cart]. 
+
+### Algoritms
+
+NN
+Cart
+linear regression
+logistic regression
+Naive bayes
+
+some learners dont use ra attrbute but deroved ones:
+- princple compoents, treat each row as a point in an n-dimensional space (one dimension per column) and look for  look at the average direction of data
+
+One  way to assess a split is by the goal of the learning. For example, suppose we know that our users use a data miner to tell them where to look for bugs in the code. If our users are busy people, then they want to read the least amount of code to find the most bugs. For those users, splits are assessed via two columns $$l$$= _linesOfCode_ and
+$$d$$=_defects_ and the best split is the one that maximizes $l/d$. [code, which]
+
+Another way to assess a  split is by how much it reduces the expected delta in the variation. For example,
+ 
+- For $n$ numeric goals $$g_1,g_2,...$$ and mean $$\overline{g}$$, the delta $$\Delta$$ can be measured using standard deviation $$\Delta=\sigma=\frac{\sum_i (g_i - \overline{g})^2}{n}$$
+- For $n$ symbolic goals occurring at frequency    $$f_1,f_2,...$$, variation can be measured using entropy $$\Delta=-\sum_i p_i {\log}_2(p_i)$$ (where $$p_i= f_i/n$$)
+- No matter how it is measured, the lower the delta, the less variation in the goal. 
+- Suppose  the goals of  $$n_0$$ rows of data (with delta $$\Delta_0$) are split into $$n_1,n_2,_n_3$$ rows with delta $$\Delta_1,\Delta_2,\Delta_3$$, 
+-  The expected delta $$\Delta'$$ after the split is $$\Delta' = n_1/n_0*\Delta_1 + n_2/n_0*\Delta_2 + n_3/n_0*\Delta_3 $$. 
+- To find the best split, we search all  the columns looking for a split that results in smallest   $\Delta'$.   [code,sdiv].
+
+
+Note that after splitting, we can treat all the columns as symbolic ranges. For example,
+the following table would convert to:
+
+((XXX, splitting
+two numeric columns, one symbolic column, one symolic goal: find a split in the numbers that best matchs the goal. Trap; the symbolic goal splits best.))
+
+ 
