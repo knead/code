@@ -1,6 +1,6 @@
 
 <a name=top></a>
-[home](https://github.com/knead/code/blob/master/docs/about-book.md#top)
+[home](https://github.com/knead/code/blob/master/docs/about-book.md#top) |
 [&copy;2019](https://github.com/timm/lisp/blob/master/LICENSE.md) |
 ["Tim Menzies"](http://menzies.us)
 <img width=1 height=25 src="https://github.com/timm/lisp/blob/master/etc/img/FFFFFF.png">
