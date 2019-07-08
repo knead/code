@@ -40,7 +40,7 @@ main() {
   git add $Top/docs/${stem}.md
   
 }
-
+set -x
 if [ -n "$1" ]; then
   main $1
   git commit -am as
