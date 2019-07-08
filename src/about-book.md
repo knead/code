@@ -3,7 +3,7 @@
 
  ## About this book
 
- This book is about using better software engineering to build better AI software. Most of our case studies come from our experience in applying AI to software engineering-- which means that <u>this book is about  SE for AI for SE</u>.
+ This book is about using better software engineering to build better AI software. Most of our case studies come from our experience in applying AI to software engineering-- which means that **_this book is about  SE for AI for SE_**.
 
  AI is a very broad topic, discussed in
  [so](REFS.md#norvig-2009) 
