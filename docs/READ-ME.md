@@ -45,25 +45,25 @@ The globale `my` (defined in [config](config.py), lists the global options.
 The following idiom is used a lot (and sets a parameter from `my`)
 
 ````python
-   1: 
-   2: def function(param=None):
-   3:   param = param or my.function.param
-   4:   ..
-   5: 
+   1| 
+   2| def function(param=None):
+   3|   param = param or my.function.param
+   4|   ..
+   5| 
 ````
 
 The code is laid out to 60 characters wide to enable easy browsing.
 Hence, I do not use `self` in my classes. Instead, I use `i` (which is much shorter).
 
 ````python
-   6: 
-   7: #----------1----------2----------3----------4----------5----------6
-   8: def function()
-   9:  asdas()
-  10: 
-  11: 
-  12: 
-  13: 
+   6| 
+   7| #----------1----------2----------3----------4----------5----------6
+   8| def function()
+   9|  asdas()
+  10| 
+  11| 
+  12| 
+  13| 
 ````
 
 
