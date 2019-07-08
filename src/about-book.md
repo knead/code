@@ -50,7 +50,7 @@
 
    We also surveyed many industrial data scientists to understand how much time they spend on different parts of this pipeline:
 
-|part  | hours per week<br>(mean, approximate)|bar chart|
+|part  | hrs/week<br>(mean, approx)|bar chart|
 |------|---------------------------|-----------------------|
 |requirements | 4.4| <img  height=15 width=88 src=img/black.png>|
 |colllection        |4.7| <img  height=15 width=94 src=img/black.png>|
