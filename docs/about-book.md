@@ -88,15 +88,15 @@ Code:
 
 |part  | hours per week<br>(mean, approximate)|bar chart|
 |------|---------------------------|-----------------------|
-|requirements | 4.4| xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx |
-|colllection        |4.7|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|clearning |4.5|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx |
-|labelling |2.9|xxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|feature engineering | 4.6|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|training. |5.4|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|evaluation |3.8|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|deployment |5.1|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|monitorig |2.6|xxxxxxxxxxxxxxxxxxxxxxxxxx|
+|requirements | 4.4| <img  height=10 width=88 src=img/black.png>|
+|colllection        |4.7| <img  height=10 width=94 src=img/black.png>|
+|clearning |4.5| <img  height=10 width=90 src=img/black.png>|
+|labelling |2.9| <img  height=10 width=28 src=img/black.png>|
+|feature engineering | 4.6| <img  height=10 width=92 src=img/black.png>|
+|training. |5.4| <img  height=10 width=108 src=img/black.png>|
+|evaluation |3.8| <img  height=10 width=76 src=img/black.png>|
+|deployment |5.1| <img  height=10 width=102 src=img/black.png>|
+|monitorig |2.6| <img  height=10 width=52 src=img/black.png>|
 
 One interesting feature about the above histogram is that most industrial "data mining" is not about mining the data.  We say this since, in  a 35 hour work week, only half a day (5.4.hours) was spent in _training_. This is interesting since most data mining textbooks _only_ talk about training. Hence, if we are going to talk SE for AI, there is a pressing need to discuss all the work that fills up the other four days of the week.  
 
