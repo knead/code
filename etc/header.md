@@ -1,7 +1,7 @@
 
 <a name=top></a>
 [home](https://github.com/knead/code/blob/master/docs/about-book.md#top) |
-[&copy;2019](https://github.com/timm/lisp/blob/master/LICENSE.md) |
+[&copy;2019](https://github.com/timm/lisp/blob/master/docs/LICENSE.md) by
 [timm](http://menzies.us)+[zimm](http://thomas-zimmermann.com)
 <img width=1 height=25 src="https://github.com/timm/lisp/blob/master/etc/img/FFFFFF.png">
 <a href="https://github.com/knead/code/blob/master/docs/LICENSE.md#top">
