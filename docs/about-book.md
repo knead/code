@@ -72,17 +72,18 @@ Code:
 
    We also surveyed many industrial data scientists to understand how much time they spend on different parts of this pipeline:
 
-|part  | hours per week (mean, approximate)|bar chart|
+|   | hours per week |bar |
+|part  |  (mean, approximate)|r chart|
 |------|---------------------------|-----------------------|
-|requirements | 4.4| :::::::::::::::::::::::::::::::::::::::::::: |
-|colllection        |4.7|:::::::::::::::::::::::::::::::::::::::::::::::|
-|clearning |4.5|::::::::::::::::::::::::::::::::::::::::::::: |
-|labelling |2.9|:::::::::::::::::::::::::::::|
-|feature engineering | 4.6|::::::::::::::::::::::::::::::::::::::::::::::|
-|training. |5.4|::::::::::::::::::::::::::::::::::::::::::::::::::::::'
-|evaluation |3.8|::::::::::::::::::::::::::::::::::::::|
-|deployment, |5.1|:::::::::::::::::::::::::::::::::::::::::::::::::::|
-|monitorig |2.6|::::::::::::::::::::::::::|
+|requirements | 4.4| ============================================ |
+|colllection        |4.7|===============================================|
+|clearning |4.5|============================================= |
+|labelling |2.9|=============================|
+|feature engineering | 4.6|==============================================|
+|training. |5.4|======================================================'
+|evaluation |3.8|======================================|
+|deployment |5.1|===================================================|
+|monitorig |2.6|==========================|
 
    One interesting feature about the above histogram is that most industrial "data mining" is not about mining the data.  We say this since, in  a 35 hour work week, only half a day (5.4.hours) was spent in _training_. This is interesting since most data mining textbooks _only_ talk about training. Hence, if we are going to talk SE for AI, there is a pressing need to discuss all the work that fills up the other four days of the week.  
 
