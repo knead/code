@@ -8,7 +8,7 @@
 
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
 
-[I'm a reference-style link][Arbitrary case-insensitive reference text]
+[I'm a reference-style  xlink][Arbitrary case-insensitive reference text]
 
 [I'm a relative reference to a repository file](../blob/master/LICENSE)
 
@@ -22,7 +22,7 @@ example.com (but not on Github, for example).
 
 Some text to show that the reference links can follow later.
 
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[arbitrary case-insensitive reference text]: #aaaa
 [1]: http://slashdot.org asdasd as asasd 
 [link text itself]: http://www.reddit.com
 [link fred itself]: http://www.reddit.com
@@ -33,5 +33,6 @@ Some text to show that the reference links can follow later.
 
 asasd
 
+<a name=aaaa>text</a>
 
 """
