@@ -18,7 +18,7 @@ gawk 'BEGIN {
                        else     
                          print "````"  
                      next }       
-  ! First { print (In ? sprintf("%4s| ",++n) : "") $0 }       
+  ! First { print (In ? sprintf("%4s. ",++n) : "") $0 }       
   END     { if (In) print "````"
             }'
 } 
