@@ -1,5 +1,5 @@
 
-# Knead= Know the New Ethically-Aligned Design
+# SE in the age of AI: an Ethical Approach
 
 
 
