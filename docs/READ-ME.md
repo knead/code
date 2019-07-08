@@ -18,7 +18,7 @@
 <tr><td valign=middle>
 Notes: 
 </td>
-<td>
+<td valign=middle>
 
 <a href="about-book.md#top">introduction</a><br>
 
