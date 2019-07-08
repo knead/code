@@ -10,7 +10,6 @@
 [contrib](https://github.com/timm/lisp/blob/master/CONTRIBUTING.md) |
 [discuss](https://github.com/knead/code/issues)
 
-# SE in the age of AI: an Ethical Approach
 
 
 

@@ -10,7 +10,6 @@
 [contrib](https://github.com/timm/lisp/blob/master/CONTRIBUTING.md) |
 [discuss](https://github.com/knead/code/issues)
 
-# SE in the age of AI: an Ethical Approach
 
 
 
@@ -37,6 +36,19 @@ Code:
 
 
 
+
+## Data collection
+
+Sometimes other people's data is better than yours (the github exaple from
+mitch)
+
+warnings:  transfer elarning. negativ transfer
+
+but when this workits amaizing. the fact that there is some generality across all these dderenfe
+projects is..
+inspriiring.
+
+````python
 ````
 
 
