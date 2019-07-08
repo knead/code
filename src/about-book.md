@@ -173,6 +173,4 @@ For example, splitting _age_ are 120 years  divides the goal of  _heartRate_  in
 
 Sometimes, such splits are misleading since they hide important numeric detail. And other times, such splits are very useful since they reduce the search space. This is because concepts spread out across a very large numeric range can be made visible by condensing the large range into a few splits.  
 
-<span style="color:orange;">Word up</span>
 
-"""
