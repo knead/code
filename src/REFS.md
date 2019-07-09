@@ -13,6 +13,10 @@ William Benton. 2019.
 "Machine learning and discovery with Kubernetes". SEMLA'19.
 https://freevariable.com/slides/semla-2019.pdf
 
+### Brun 2018
+
+Y. Brun and A. Meliou, “Software fairness,” ser. ESEC/FSE 18. NY, USA: ACM, pp. 754–759.
+
 ## D
 
 ### Duda 2000
