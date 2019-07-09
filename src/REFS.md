@@ -3,7 +3,12 @@
 
 # References
 
-## A
+## Ao
+
+### Abdollahi 2016
+
+Behnoush Abdollahi and Olfa Nasraoui. 2016. Explainable restricted Boltzmann machines for collaborative filtering. arXiv preprint arXiv:1606.07129 (2016).
+
 
 ## B
 
@@ -17,7 +22,26 @@ https://freevariable.com/slides/semla-2019.pdf
 
 Y. Brun and A. Meliou, “Software fairness,” ser. ESEC/FSE 18. NY, USA: ACM, pp. 754–759.
 
+## C
+
+
+### Chen 2018
+
+Di Chen, Wei Fu, Rahul Krishna, and Tim Menzies. 2018. Applications of psychological science for actionable analytics. In Proceedings of the 2018 26th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2018). ACM, New York, NY, USA, 456-467. DOI: https://doi.org/10.1145/3236024.3236050
+
+[download]
+
+
+### Craven 2014
+
+Mark W Craven and Jude W Shavlik. 2014. Learning symbolic rules using artificial neural networks. In Proceedings of the Tenth International Conference on Machine Learning. 73–80.
+
 ## D
+
+### Dam 2018
+
+Hoa Khanh Dam, Truyen Tran, and Aditya Ghose. 2018. 
+"Explainable Software Analytics.". ICSE, NIER, 2018,  arXiv preprint arXiv:1802.00603 (2018).
 
 ### Duda 2000
 
@@ -42,6 +66,11 @@ Pages 135-146,
 ISSN 0950-5849,
 https://doi.org/10.1016/j.infsof.2016.04.017.
 
+### Fu 2017
+
+Wei Fu and Tim Menzies. 2017. Easy over hard: a case study on deep learning. In Proceedings of the 2017 11th Joint Meeting on Foundations of Software Engineering. ACM, 49–60.
+
+
 ## G
 
 ### Grus 2019
@@ -56,6 +85,41 @@ Joel Grus. 2019.
 Mark Harman, S. Afshin Mansouri, and Yuanyuan Zhang. 2012. 
 "Search-based software engineering: Trends, techniques and applications." ACM Comput. Surv. 45, 1, Article 11 (December 2012), 61 pages. DOI=http://dx.doi.org/10.1145/2379776.2379787
 
+## I
+
+### IEEEethics 2019
+
+IEEE, 2019. "Ethically-Aligned Design: A Vision for Priorizing Human Well-Begin with Autonomous and Intelligence Systems". First edition.
+
+## K
+
+### Kim 2016
+
+Miryung Kim, Thomas Zimmermann, Robert DeLine, and Andrew Begel. 2016. The Emerging Role of Data Scientists on Software Development Teams. In Proceed- ings of the 38th International Conference on Software Engineering (ICSE ’16). ACM, New York, NY, USA, 96–107. DOI:http://dx.doi.org/10.1145/2884781.2884783
+
+### Krishna 2015
+
+Rahul Krishna and Tim Menzies. 2015. Actionable= Cluster+ Contrast?. In Auto- mated Software Engineering Workshop (ASEW), 2015 30th IEEE/ACM International Conference on. IEEE, 14–17.
+
+## L
+
+### Lipton 2016
+
+Zachary C Lipton. 2016. The mythos of model interpretability. arXiv preprint arXiv:1606.03490 (2016).
+
+
+## M
+
+### Mende 2010
+
+Thilo Mende and Rainer Koschke. 2010. Effort-aware defect prediction models. In
+Software Maintenance and Reengineering (CSMR), 2010 14th European Conference
+on. IEEE, 107–116.
+
+### MicroAi 2019
+
+Microsoft AI principles. 2019. https://www.microsoft.com/en-us/ai/our-approach-to-ai
+
 ## N
 
 ### Norvig 2009
@@ -69,16 +133,33 @@ Stuart Russell and Peter Norvig. 2009. Artificial Intelligence: A Modern Approac
 Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, Jake Vanderplas, Alexandre Passos, David Cournapeau, Matthieu Brucher, Matthieu Perrot, and Édouard Duchesnay. 2011. "Scikit-learn: Machine Learning in Python". J. Mach. Learn. Res. 12 (November 2011), 2825-2830.
 http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html
 
+## R
+
+### Ribeiro 2016
+
+Marco Tulio Ribeiro, Sameer Singh, and Carlos Guestrin. 2016. "Why Should I Trust You?": Explaining the Predictions of Any Classifier. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD '16). ACM, New York, NY, USA, 1135-1144. DOI: https://doi.org/10.1145/2939672.2939778
+
 ## S
+
+
+### Sawyer 2013
+
+Robert Sawyer. 2013. Bias Impact on Analyses and Decision Making Depends on the Development of Less Complex Applications. In Principles and Applications of Business Intelligence Research. IGI Global, 83–95.
 
 ### Sculley 2015
 
 D. Sculley. 2010. "Web-scale k-means clustering". In Proceedings of the 19th international conference on World wide web (WWW '10). ACM, New York, NY, USA, 1177-1178. DOI=http://dx.doi.org/10.1145/1772690.1772862
 
-### Sculley 2015
+### Sculley 2015a
 
 D. Sculley, Gary Holt, Daniel Golovin, Eugene Davydov, Todd Phillips, Dietmar Ebner, Vinay Chaudhary, Michael Young, Jean-Francois Crespo, and Dan Dennison. 2015. 
 "Hidden technical debt in Machine learning systems." In Proceedings of the 28th International Conference on Neural Information Processing Systems - Volume 2 (NIPS'15), C. Cortes, D. D. Lee, M. Sugiyama, and R. Garnett (Eds.), Vol. 2. MIT Press, Cambridge, MA, USA, 2503-2511.
+
+## T
+
+### Tan 2016
+
+Shiang-Yen Tan and Taizan Chan. 2016. Defining and conceptualizing actionable insight: a conceptual framework for decision-centric analytics. arXiv preprint arXiv:1606.03510 (2016).
 
 ## W
 

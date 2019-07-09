@@ -16,6 +16,9 @@ need refs for
 \cite{ladd1998evidence,burrell2016machine,corbett2018measure,galindo2000credit,yan2013system,chalfin2016productivity,ajit2016prediction,berk2015machine,berk2016forecasting}. 
 
 
+# Code
+
+make chops return Range(lo, hi, ystats, items=[]). then do FFT trees
 ----
 
 # exercises
