@@ -1,7 +1,36 @@
+# Introduction
+
+
+needs intro notes on optimizers
+
+start not tight enough yet
+
+need little sampels for each learner
+
+need to highlight hte mantras and the technical terms
+
+# Ethics
+
+need refs for
+
+\cite{ladd1998evidence,burrell2016machine,corbett2018measure,galindo2000credit,yan2013system,chalfin2016productivity,ajit2016prediction,berk2015machine,berk2016forecasting}. 
+
+
+----
+
+# exercises
+
+## the homeganity assumptions of teak
+
+givena  table of numbers, reduce k fnd nnearst neighbor. tweak the example so thatnce u get too close, variance starts going up 
+again
+
+# other
+
 cahpte2-  ethics, insight
 chaprt3 has to be case studies
 
-thing shta tdont seem to fit... et
+# thing shta tdont seem to fit... et
 
 - In software engineering, goals are different
 - The data is different (bine;y, vriatnce, bais doe snot worka s aexpected, ore about isnight that then the data, etc).

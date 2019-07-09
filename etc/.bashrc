@@ -43,7 +43,12 @@ alias grep='grep --color=auto'
 alias put='git commit -am saving; git push; git status'
 alias vi="vim -u $Ell/etc/.vimrc "
 alias tmux="$(which tmux) -f $Ell/etc/.tmuxrc "
-alias py="$(which python3) -B  "
+
+py() { 
+  p=$(which python3)
+  $p -B $1.py
+}
+
 case "${uname}" in
       Linux*)     
         alias ls='ls --color=auto';;
