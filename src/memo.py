@@ -34,6 +34,6 @@ when:
 
 ## Example Usage
 
-See [col](Num
+See [col](col.md/#Num)
 
 """

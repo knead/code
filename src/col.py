@@ -5,6 +5,7 @@
 """
 from main import my
 from memo import memo0
+from lib import nump
 import math
 """
 
@@ -32,11 +33,11 @@ class Col:
   def n(i):     return i.has.n       if i.has else 0
   def delta(i): return i.has.delta() if i.has else 0
   def __add__(i,x):
-    nump = lambda z: isinstance(z, (int,float))
-    if x != my.ignore:
-      if not i.has: 
-        i.has = Num() if nump(x) else Sym()
-      i.has + x
+    for y in islist(x):
+      if y != my.ignore:
+        if not i.has: 
+          i.has = Num() if nump(y) else Sym()
+        i.has + y
   def __sub__(i,x):
     if x != my.ignore and i.has: i.has - x
 """
@@ -72,9 +73,9 @@ class Num(Thing):
   def expect(i): return i.mu
   @memo0
   def sd(i):
-    return 0 if i.n < else (i.m2/(i.n - 1 + my.tiny))**0.5
+    return 0 if i.n < 2 else (i.m2/(i.n - 1 + my.tiny))**0.5
   def __add__(i,x):
-    i.memo= {}
+    i.memo= {} # state update happenning. so blast the memos
     i.n  += 1
     d     = x - i.mu
     i.mu += d/i.n
@@ -82,7 +83,7 @@ class Num(Thing):
     if x < i.lo: i.lo = x
     if x > i.hi: i.hi = x
   def __sub__(i,x):
-    i.memo={}
+    i.memo={} # state update happenning. so blast the memos
     if i.n < 2:
       i.n,i.mu,i.m2 = 0,0,0
     else:
@@ -105,27 +106,27 @@ have a stopping rule of `i.n` > 5 (say).
 class Sym(Thing):
   "track symbols seen in a column"
   def __init__(i,inits=[]):
-    i.n,i.mode,i.bag = 0,None,{}
+    i.n,i.bag = 0,{}
     i.memo = {}
     [i + x for x in inits]
   def delta(i) : return i.ent()
   def expect(i): return i.mode
   def __add__(i,x):
-    i.memo= {}
+    i.memo= {} # state update happenning. so blast the memos
     i.n += 1
     i.bag[x] = i.bag.get(x,0) + 1
   def __sub__(i,x):
-    i.memo={}
+    i.memo={} # state update happenning. so blast the memos
     if x in i.bag:
       i.n -= 1
       i.bag[x] -= 1
   @memo0
   def mode(i):
-    most=0
-    for k,v in i.bag.items():
-      if v > most:
-        i.mode, most = k,v
-    return i.mode
+    most,out = 0,None
+    for k,n in i.bag.items():
+      if n > most:
+        out, most = k,n
+    return out
   @memo0
   def ent(i):
     e=0
@@ -134,3 +135,21 @@ class Sym(Thing):
       e -= p * math.log(p,2)
     return e
 
+"""
+
+## Questions
+
+- What would happen if the above `__add__` and `__sub__` methods neglected to reset the memo store?
+- Match the X to the Y following: X={standard deviation, entropy}  apply to Y={symbolic and numeric}quanities.
+- What is the standard deviation of a list with one item?
+- What is the entropy of a list of 10 idenitical items?
+- What is the _same_ about standard deviation and entropy?
+- What is  _different _ about standard deviation and entropy?
+- According to Cohen,
+  a _small effect_ (i.e. something that is negliable) is less that 30% of the standard deviation.
+  Add a method called `cohen` to `Num` class that returns a _neglianle amount_ (edit `main.py` to
+  define a 
+  `negliable` parameter of 30\%). 
+  Add a test function to `okcol.py` that uses that `cohen` method
+
+"""

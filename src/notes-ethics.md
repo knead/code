@@ -205,6 +205,11 @@ In our view, reliability is a statement of incrementally learning from examples 
 
 ### Transparency
 
+many ways to explain things. eg. visually
+
+explanation needed for debugging, accoutanability, reduce ods of freadualtna tbheavior
+(cause f the system's reasoning is opaque then the it is easier to hide fraud or malfeasance
+
 Ethtical software must  explain how it  makes its own conclusions since, otherwise,
 humans cannot check the decisions of the system against their own expecations.
 

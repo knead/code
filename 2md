@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# todo. add yaml front matter include "code: true"
+
 Top=$(git rev-parse --show-toplevel)
 worker() {
 gawk 'BEGIN {  
