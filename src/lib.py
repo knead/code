@@ -27,9 +27,17 @@ any = random.choice
 
 """
 
-def iterp(x) : return not isinstance(x,str) 
+def iterp(x) : return not isinstance(x,str) \
                       and isinstance(x,Iterable)
 def nump(x)  : return isinstance(x,(float,int))
+
+"""
+
+## Math
+
+"""
+
+def close(x,y,near=0.01): return y*(1-near) <=x<= y*(1+near)
 
 """
 

@@ -34,7 +34,7 @@ if __name__ == "__main__": ok()
 
 
 If a test function contains a documentation string, then that
-  is printed as part of the test process.
+is printed as part of the test process.
 
 Calling `python3 ok.py` will make this code run all the tests
   in all the  `okXX.py` files in the current directory.
@@ -74,8 +74,9 @@ if __name__ == "__main__":
 
 """
 
-## Exercises
+## Comprehension Exercises
 
-Write a file `okMyTest.py` that checks if 1+1 equals two.
+Skim over all the `okXX.py` files to get a sense of how to use this
+code/ Write a file `okMyTest.py` that checks if 1+1 equals two.
 
 """

@@ -4,7 +4,7 @@
 
 """
 from main import my
-from memo import memo0
+from memo import memos
 from lib import nump,items
 import math
 """
@@ -18,21 +18,14 @@ of the column and the column's name (the `txt`).
 `Col`umns can be initialized with an `inits` column.  Internally,
 `Col`umns keep a `has` variable which is initially empty. As things
 arrive, (if they are not `my.ignore`), then the first thing
-that is a symmbol or a number triggers the creation of a new
+that is a symbol or a number triggers the creation of a new
 `Num` or `Sym` for the `i.has` variable.
-
-This code uses `__add__` and `__sub__` so items can be
-added/removed using `+` and `-` (see [okcol](okcol) for examples).
-
-Design detaols: note that `Num` and `Sym` are not
-sub-classes of `Col` since the relationship is that `Col` _has_
-zero or one `Num` or `Sym`.
 
 """
 class Col:
-  def __init__(i,inits=[],txt="",pos=0):
-    i.txt,i.pos,i.has = txt,pos,None
-    [i + x for x in inits]
+  def __init__(i,inits=[],txt="",pos=0,has=None):
+    i.txt,i.pos,i.has = txt,pos,has() if has else None
+    i + inits
   def n(i):      return i.has.n        if i.has else 0
   def delta(i):  return i.has.delta()  if i.has else 0
   def expect(i): return i.has.expect() if i.has else 0
@@ -51,20 +44,20 @@ class Col:
 ### Num
 
 """
+
+@memos # turns the method sd0 into a property i.sd
 class Num:
   "Track numbers seen in a column"
   def __init__(i,inits=[]):
     i.n,i.mu,i.m2 = 0,0,0
     i.lo,i.hi     = my.inf, -1*my.inf
-    i.memo={}
     [i + x for x in inits]
   def delta(i) : return i.sd()
   def expect(i): return i.mu
-  @memo0
-  def sd(i):
-    return 0 if i.n < 2 else (i.m2/(i.n - 1  + 0.00000001))**0.5
+  def sd0(i):
+    return 0 if i.n < 2 else (i.m2/(i.n - 1 + 10**-32))**0.5
   def __add__(i,x):
-    i.memo= {} # state update happenning. so blast the memos
+    i._memo= {} # state update happening. So blast the memos
     if x < i.lo: i.lo = x
     if x > i.hi: i.hi = x
     i.n  += 1
@@ -72,7 +65,7 @@ class Num:
     i.mu += d/i.n
     i.m2 += d*(x - i.mu)
   def __sub__(i,x):
-    i.memo={} # state update happenning. so blast the memos
+    i._memo={} # state update happening. So blast the memos
     if i.n < 2:
       i.n,i.mu,i.m2 = 0,0,0
     else:
@@ -86,7 +79,7 @@ class Num:
 
 Note that there is a numerical methods
 issue with the `__sub__` method of `Num`: it becomes
-inaccurate when the tracekd numbers are very small and the sample
+inaccurate when the tracked numbers are very small and the sample
 size is small (e.g. `i.n` less than 5). So if using
 `aNum - x` to walk backwards down a sequence,
 have a stopping rule of `i.n` > 5 (say).
@@ -94,32 +87,30 @@ have a stopping rule of `i.n` > 5 (say).
 ### Sym
 
 """
+@memos
 class Sym:
   "track symbols seen in a column"
   def __init__(i,inits=[]):
     i.n,i.bag = 0,{}
-    i.memo = {}
     [i + x for x in inits]
   def delta(i) : return i.ent()
   def expect(i): return i.mode
   def __add__(i,x):
-    i.memo= {} # state update happenning. so blast the memos
+    i._memo= {} # state update happening. Blast the memos
     i.n += 1
     i.bag[x] = i.bag.get(x,0) + 1
   def __sub__(i,x):
-    i.memo={} # state update happenning. so blast the memos
+    i._memo={} # state update happening. So blast the memos
     if x in i.bag:
       i.n -= 1
       i.bag[x] -= 1
-  @memo0
-  def mode(i):
+  def mode0(i):
     most,out = 0,None
     for k,n in i.bag.items():
       if n > most:
         out, most = k,n
     return out
-  @memo0
-  def ent(i):
+  def ent0(i):
     e=0
     for v in i.bag.values():
       p  = v/i.n
@@ -130,26 +121,32 @@ class Sym:
 
 ## Check Your Comprehension 
 
+- This code uses `__add__` and `__sub__`. What does
+  that mean for how items can be added or deleted ?
+- `Num` and `Sym` are not sub-classes of `Col`. Why? 
+  Hint: `Col` _has_ zero or one `Num` or `Sym`.
 - Write down the equation for entropy, standard deviation.
 - What is the standard deviation of a list with one item?
 - What is the entropy of a list of 10 idenitical items?
 - Consider the following  boxes. Intuitively, which is most/least diverse? Check your intution: on an x-y
   plot, lay out box 1,2,3,4,5 on the x-axis and compute their entropy (recorded on the y-axis). Where is
   entropy maximal? Minimal? FYI: log2(1)=0, log2(0.75)=-0.42, log2(0.5)=-1, log2(0.25)=-2.
-  - box1: [apple*4] 
-  - box2: [apple*3,orange*1] 
-  - box3: [apple*2,orange*2] 
-  - box4: [apple*1,orange*3] 
-  - box5: [orange*4]
-- Match the X to the Y following: X={standard deviation, entropy}  apply to Y={symbolic and numeric}quanities.
+  - box 1: [apple*4] 
+  - box 2: [apple*3,orange*1] 
+  - box 3: [apple*2,orange*2] 
+  - box 4: [apple*1,orange*3] 
+  - box 5: [orange*4]
+- Match the X to the Y following: X={standard deviation, entropy}  apply to Y={symbolic and numeric}quantities.
 - What is the _same_ about standard deviation and entropy?
 - What is  _different _ about standard deviation and entropy?
 - According to Cohen,
-  a _small effect_ (i.e. something that is negliable) is less that 30% of the standard deviation.
-  Add a method called `cohen` to `Num` class that returns a _negliable_ amount_ (edit `main.py` to
+  a _small effect_ (i.e. of negligible size) is less that 30% of the standard deviation.
+  Add a method called `cohen` to `Num` class that returns a _negligible_ amount_ (edit `main.py` to
   define a 
-  `negliable` parameter of 30\%). 
+  `negligible` parameter of 30\%). 
   Add a test function to `okcol.py` that uses that `cohen` method
-- What would happen if the above `__add__` and `__sub__` methods neglected to reset the memo store?
+- What does the `@memos` class decorator do?
+- What would happen if the above `__add__` and `__sub__` methods 
+  neglected to reset the `_memo` store?
 
 """

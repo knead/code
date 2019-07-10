@@ -9,6 +9,6 @@ def ok1():
 def ok2(): 
   "This will always pass."
   n = sum([1,2,3,4])
-  assert n==10, "shoudl not fail"
+  assert n==10, "should not fail"
 
 if __name__ == "__main__": ok()

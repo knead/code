@@ -5,7 +5,7 @@
 ## How to Install
 
 - Move all the code to a new directory. 
-- Every file knows its dependancies and so can 
+- Every file knows its dependencies and so can 
   be executed directly using `python3 xx.py`.
 - Look at the _okX.py_ files for samples of how to use this code.
 
@@ -15,7 +15,7 @@ This file is loaded by everything else. It creates a global `my`
 holding system-wide settings.
 
 Also controlled here is the random number seed[^seed]. The idiom
-`my =Defaults().reset()` will reset everything abck to the defaults,
+`my =Defaults().reset()` will reset everything back to the defaults,
 including the seed.  If that is not desired, just use `my=Defaults()`.
 
 Note that, often, this code  read rows of data where the first row
@@ -38,10 +38,10 @@ class Defaults:
     i.more   = ">"   # a numeric goal, to goal to maximize
     i.klass  = "!"   # a symbolic class, to be predicted for
 
-    # other globals
+    # other stuff
     i.seed = 235324971  # from random.org
-    # hyperparameter settings
-    # sample-ing
+    # hyper parameter settings
+    # sampling
     i.keep   = 128
     # chops
     i.cohen  = 0.3 # 0.5 0.4 0.3 0.2
@@ -61,8 +61,8 @@ my= Defaults().reset()
 
 ## How to Test
 
-Each file can be loaded and tested indepdently.
-To enable that,  each file begins with a set of `import` statements that descripe all its dependancies.
+Each file can be loaded and tested independently .
+To enable that,  each file begins with a set of `import` statements that describe all its dependencies.
 
 Some files `X.py` have demo/test code in `okX.py` 
 
@@ -85,14 +85,14 @@ All this  code is laid out to be read on mobile devices; hence:
 
 To document this code, add in Markdown comments within multi-line Python quotes.
 
-- All the files get convereted into Markdown and rendered by Jekyll. 
+- All the files get converted into Markdown and rendered by Jekyll. 
 - To avoid clashes between documentation and code files, 
   the former have a dash in their name (e.g. _about-book.md_).
 - So to extend this code, do not write code files with dashes in the name.
 
 [^seed]: Computers don’t generate truly random numbers—they are deterministic, which means that they operate by a set of rules. You can mimic randomness by specifying a set of rules. For example, “take a number x, add 900 +x, then subtract 52.” In order for the process to start, you have to specify a starting number, x (the seed).
 
-## Exercise:
+## Comprehension Questions:
 
 ```
      1	@relation weather
@@ -122,16 +122,19 @@ To document this code, add in Markdown comments within multi-line Python quotes.
 
 0. For the above data, rewrite it using our magic headers `ignore,less,more,klass`
    (hint: replace likes 1 to 9 with one row with the column names). See if you can
-    ignore the _humidity_ column. And try to minimize _temperature_.
-1. For all the hyperparamaters listed above, search the code for (eg.) `my.bins`. 
+   ignore the _humidity_ column. And try to minimize _temperature_.
+1. For all the hyperparamaters listed above, search the code for (e.g.) `my.bins`. 
      - Try to work out what the parameter does.
      - Try to work out what  would happen if the hyperparameter doubled or halved
-2. All the above hyerparameters were set via ``engineering judgement''; i.e. we guessed.
+2. All the above hyperparamaters were set via ``engineering judgment''; i.e. We guessed.
    If the results of AI tools is controlled by so many guesses, what does that say
    about the trustworthiness of these tools.
-3. Read section 3 in the [DUO paper](https://arxiv.org/pdf/1812.01550.pdf). Answer the following questions.
+3. Read section 3 in the [DUO paper](https://arxiv.org/pdf/1812.01550.pdf). 
+   Answer the following questions.
      - What is hyperparameter optimization?
      - What are its benefits and weaknesses?
-     - The hyperparameter optimizers themselves are controlled  by their own magic parameters.
+     - The hyperparameter optimizers themselves are controlled  
+       by their own magic parameters.
+       How slow/fast might hyper-hyperparameter optimization be?
         
 """
