@@ -14,11 +14,22 @@ has to include the line `i.memo={}`.
 """
 
 def memo0(f):
+  "Memo index does NOT includes first argument"
   name = f.__name__
-  def g(i):
+  def g(i, *arg, **kw):
    if name not in i.memo:
-     i.memo[name] = f(i)
+     i.memo[name] = f(i, *arg, **kw)
    return i.memo[name]
+  return g
+
+def memo(f):
+  "Memo index includes first argument"
+  name = f.__name__
+  def g(i, *arg, **kw):
+   key=(name,arg[0])
+   if key not in i.memo:
+     i.memo[key] = f(i, *arg, **kw)
+   return i.memo[key]
   return g
 
 """

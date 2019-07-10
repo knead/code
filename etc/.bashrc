@@ -48,6 +48,9 @@ py() {
   p=$(which python3)
   $p -B $1.py
 }
+ok() { 
+  py ok$1
+}
 
 case "${uname}" in
       Linux*)     

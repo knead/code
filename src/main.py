@@ -44,7 +44,6 @@ class Defaults:
     # sample-ing
     i.keep   = 128
     # chops
-    i.tiny   = 3
     i.cohen  = 0.3 # 0.5 0.4 0.3 0.2
     i.ncohen = 1/7 # 2/9 2/8 1/7 1/6
     i.bins   = 16
@@ -73,6 +72,8 @@ Some files `X.py` have demo/test code in `okX.py`
   this code loads all the "okX.py" files, then runs the `ok()` functions.
 
 ## How to Format Code
+
+All these classes start with an uppercase letters.
 
 All this  code is laid out to be read on mobile devices; hence:
 

@@ -5,7 +5,7 @@
 """
 from main import my
 from memo import memo0
-from lib import nump
+from lib import nump,items
 import math
 """
 
@@ -21,7 +21,6 @@ arrive, (if they are not `my.ignore`), then the first thing
 that is a symmbol or a number triggers the creation of a new
 `Num` or `Sym` for the `i.has` variable.
 
-
 This code uses `__add__` and `__sub__` so items can be
 added/removed using `+` and `-` (see [okcol](okcol) for examples).
 
@@ -30,10 +29,11 @@ class Col:
   def __init__(i,inits=[],txt="",pos=0):
     i.txt,i.pos,i.has = txt,pos,None
     [i + x for x in inits]
-  def n(i):     return i.has.n       if i.has else 0
-  def delta(i): return i.has.delta() if i.has else 0
+  def n(i):      return i.has.n        if i.has else 0
+  def delta(i):  return i.has.delta()  if i.has else 0
+  def expect(i): return i.has.expect() if i.has else 0
   def __add__(i,x):
-    for y in islist(x):
+    for y in items(x): # x could a single thing or list of items
       if y != my.ignore:
         if not i.has: 
           i.has = Num() if nump(y) else Sym()
@@ -53,7 +53,7 @@ class Thing:
     n   = j.n + k.n
     assert i.n == n, "sub things not of same size"
     new = j.n/n * j.delta() + k.n/n * k.delta()
-    old = i.delta() * (1-my.simplerBy)
+    old = i.delta() * (1 - my.simplerBy)
     return new < old
 """
 
@@ -73,15 +73,15 @@ class Num(Thing):
   def expect(i): return i.mu
   @memo0
   def sd(i):
-    return 0 if i.n < 2 else (i.m2/(i.n - 1 + my.tiny))**0.5
+    return 0 if i.n < 2 else (i.m2/(i.n - 1  + 0.00000001))**0.5
   def __add__(i,x):
     i.memo= {} # state update happenning. so blast the memos
+    if x < i.lo: i.lo = x
+    if x > i.hi: i.hi = x
     i.n  += 1
     d     = x - i.mu
     i.mu += d/i.n
     i.m2 += d*(x - i.mu)
-    if x < i.lo: i.lo = x
-    if x > i.hi: i.hi = x
   def __sub__(i,x):
     i.memo={} # state update happenning. so blast the memos
     if i.n < 2:
@@ -91,6 +91,8 @@ class Num(Thing):
       d     = x - i.mu
       i.mu -= d/i.n
       i.m2 -= d*(x - i.mu)
+  def norm(i,x):
+    return (x - i.lo) / (i.hi - i.lo - my.tiny)
 """
 
 Note that there is a numerical methods
@@ -147,7 +149,7 @@ class Sym(Thing):
 - What is  _different _ about standard deviation and entropy?
 - According to Cohen,
   a _small effect_ (i.e. something that is negliable) is less that 30% of the standard deviation.
-  Add a method called `cohen` to `Num` class that returns a _neglianle amount_ (edit `main.py` to
+  Add a method called `cohen` to `Num` class that returns a _negliable_ amount_ (edit `main.py` to
   define a 
   `negliable` parameter of 30\%). 
   Add a test function to `okcol.py` that uses that `cohen` method

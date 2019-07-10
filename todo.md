@@ -19,7 +19,17 @@ need refs for
 # Code
 
 make chops return Range(lo, hi, ystats, items=[]). then do FFT trees
+
+add qyestuibs at end of dom (difference zitler's dom and bianry donation (see abdel)
+
+add chop, a max depth
+make better in chops a little object
+  with a __call__ method
+return raange with items and stats 
+
 ----
+
+
 
 # exercises
 
