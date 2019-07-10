@@ -24,5 +24,5 @@ while [ 1 ]; do  # dsad asd as das
   delta=$(echo $((now - when)))
   clear
   figlet -w 50 "$delta"  
-  sleep 5 
+  sleep 2 
 done

@@ -111,4 +111,8 @@ aug python
     " ftype/python.vim overwrites this
     au FileType python setlocal ts=2 sts=2 sw=2 expandtab
 aug end
+autocmd BufRead,BufNewFile *.md setlocal spell
+
+au BufRead,BufNewFile *.py setlocal textwidth=60
+map Z 1z=
 

@@ -45,7 +45,7 @@ If anyone doubts that ethics is an SE concern, then it be noted that:
   may disagree. When users discover problems with software, it is the
   job of the person maintaining that software (i.e. a software engineer)
   to fix that problem.
-- To some extent, issues of ethics can be managed by softare design.
+- To some extent, issues of ethics can be managed by software design.
   As shown in this book, there are design patterns and algorithms
   could lead to more ethical software. That is, ethics is a design
   issue that _could be_ addressed like any other design problem
@@ -55,7 +55,7 @@ to _is ethical_. Even the best designed system can be maliciously
 or accidentally used in an unethical way. Nevertheless, the easier
 it is to build ethical systems, the more likely they will get
 created. Also, even if the tools of this book do not fully address
-ell thical issues, it is still very valuable to demand that software
+ethical issues, it is still very valuable to demand that software
 engineers think very hard about the ethics of their system.
 
 
@@ -116,7 +116,7 @@ attributes like race, gender, age, etc:
 
 
 Recently, many organizations like [Microsoft](/REFS.md#microai-2019)
- and the  [Institure for Electronics and Electrical Engineers](/REFS#IEEEethics-2019) (IEEE)
+ and the  [Institute for Electronics and Electrical Engineers](/REFS#IEEEethics-2019) (IEEE)
 have  discussed general principles for implementing autonomous and intelligent systems (A/IS).
 The IEEE makes the following points about A/IS:
 
@@ -132,7 +132,7 @@ The IEEE makes the following points about A/IS:
 8. Competence: A/IS creators shall specify and operators shall adhere to the knowledge and 
    skill required for safe and effective operation.
 
-All these points are important, albiet a little hard to operationalize.  For example, the last point talks
+All these points are important, albeit a little hard to operationalize.  For example, the last point talks
 more about the developers than the developed software. 
 Microsoft offers its own 
 Another list of principles, this time from Microsoft,  is perhaps more operational:
@@ -147,8 +147,7 @@ Another list of principles, this time from Microsoft,  is perhaps more operation
 </ol>
 
 One way to map these two lists together is as follows
-(where the IEEE and Microsoft principles are shown in the rows and  columns, repsectively). 
-This table is hardly definitive since many of these concepts are being rapidly evolved.
+(where the IEEE and Microsoft principles are shown in the rows and  columns, respectively). 
 
 |                | a=Transparency | b=Fairness | c=Inclusiveness | d=Rel/Safety | e=Priv/Secure | f=Accountability |
 |----------------|----------------|------------|-----------------|--------------|---------------|------------------|
@@ -158,20 +157,182 @@ This table is hardly definitive since many of these concepts are being rapidly e
 |4=Effectiveness |                |            |                 |  &#10004;    | &#10004;      |  &#10004;        |
 |5=Transparency  |   &#10004;     |  &#10004;  |                 |              |               |                  |
 |6=Accountability|   &#10004;     |  &#10004;  |                 |  &#10004;    |               |  &#10004;        |
-|7=Compentence   |   &#10004;     |            |                 |  &#10004;    |               |                  |
+|7=Competence   |   &#10004;     |            |                 |  &#10004;    |               |                  |
 
-**Table 1: Etical principles from IEEE and Microsoft**{: style="text-align: center"}
+**Table 1: Ethical principles from IEEE and Microsoft**{: style="text-align: center"}
 
+The above table is hardly definitive since many of these concepts are being rapidly evolved.
 One way to assist in the evolution of these concepts is to define them use discrete maths; i.e. using data structures
 and algorithms-- which is the point of the rest of this chapter. 
 
-## Implementing Ethics
+## Design Details
 
-XXX not the way, just one way. hoepfull this will irritate enoguth people to propse other ways
+Before committing to a particular design, it is important to make the following point. The following is
+**one** way, but not **the only** way, to design for ethical AI.
+The aim of the following is to get software engineers thinking about how to better design their systems.
+So a  perfect reaction to the following would be:
+
+- "Hey! there's a better way to do this!"
+- or "This code does not handle ABC so I propose DEF".
+
+### Accountability, Transparency, Competency   need Explanations
+
+The principle of _accountability_ requires that users of software
+can demand an _explanation_ of why software is doing what it does.
+Consider, the situation where some new AI software is installed to
+control the traffic signals along  a road in front of a set of
+shops.  Suppose those signals cause a change in traffic patterns:
+
+- Those new AI controller might may lead to gridlock. In that case, drivers should be able to ask why that is happening.
+- Those signals may also lead to the cars moving so fast, that none dare slow down and turn into the shops.
+  In that case, the shopkeepers should be able to understand why that is happening.
+
+Note that one aspect of such accountability is _repair_. That is,
+if you do not like the answers that an AI system is giving you,
+then there needs to be some way of adjusting those answers.
+
+Another reason to implement an explanation system  is _transparency_
+and _competency_.  Consider the following  five common software
+tasks: construction (of the original system); testing; fixing;
+certification; and maintenance.  All these five tasks are made simpler
+by software that  can explain its internal workings.  That is,
+software _competency_  is greatly assisted by transparency.  For
+this reason, modern software development environments come with
+many transparency tools such as tracing, breakpoints, code search,
+extensive test suites, code summarization tools, etc. For AI tools,
+those transparency tools need to be augmented with ways to discover
+and understand by decisions are being made.
+
+Yet another reason to endorse transparency is
+that
+criminal behavior is more likely when criminals  think they will not get caught. Hence, the
+easier it is to understand and audit a system, the less  
+likely it is that there will be
+fraud and malfeasance.
+
+But does every system need an explanation system?  Perhaps not.
+The obvious counter-argument is that if no human ever needs to
+understand the AI tool,   then it does not need to be transparent.
+For example, a neural net could control the carburetor of an internal
+combustion engine since that carburetor will never dispute the model
+or ask for clarification of any of its reasoning.
+On the other hand, if an AI model is to be used to persuade humans
+to change what they are doing, it needs to be comprehensible
+so humans can debate the merits of its conclusions. Returning
+to the carburetor example, if there is some debate on how best
+to change the carburetor's software (e.g. during debugging or upgrading),
+then engineers will need to open up the carburetor's  black box to understand how it works
+(and how best it can be changed). 
+
+More generally,
+many people argue that
+that AI tools models needs to be expressed in a
+simple way that is easy for practitioners to
+[interpret](/REFs.md#dam-2019). According to [Miryung Kthaniel D Phillipsuim and her
+colleagues](/REFS.md#kim-2106), AI tools for software analytics aim to obtain
+actionable insights from software artifacts that help practitioners
+accomplish tasks related to software development, systems, and
+users.  [Other researchers](/REFS.md#tan-2016) argue that for
+software vendors, managers, developers and users, such comprehensible
+insights are the core deliverable of software analytics.  [Robert
+Sawyer](/REFS.md#sawyer-2103) comments that actionable insight is
+the key driver for businesses to invest in data analytics initiatives.
+
+Accordingly, much research focuses on the generation of simple
+models, or making "black box" models more explainable, so that human
+engineers can understand and appropriately trust the decisions made
+by [software analytics models](/REFS.md#abdollahi-2016). If a model
+is not comprehensible, there are some explanation algorithms that
+might mitigate that problem. For example:
+
+-  In secondary learning, the examples given
+to a neural network are used to [train a rule-based learner](/REFS.md#craven-2013)
+and those
+learners could be said to "explain" the neural net. 
+- Another secondary learner is LIME that builds a model in the local neighborhood of a particular
+example in order to explain why an AI model made particular decisions about that example.
+- In
+contrast set learning for instance-based reasoning, data is clustered
+and users are shown the difference between 
+[a few exemplars selected from each cluster](/REFS.md#krishna-2015).
+
+Such explanation facilities are post-processors
+to the original learning method. An alternative simpler approach
+would be to use learners that generate comprehensible models in
+the first place. 
+One such approach is FFtrees.
+
+The premise of FFtrees is that if you are going to explain something to someone,
+you had best do that in a  form that that easily accommodate inside their own memory.
+One way to do that is offer explanations in the form of many tiny rules.
+Psychological theorists note that human memory is often organized around a large number of such simple rules,
+also called heuristics. Such heuristics may not be general principles. In fact, usually, they are highly
+context-specific constructs. But even then, they are very useful. For example,
+suppose one of the authors of this book had a heart attack. If that were to happen, we would
+ask that we not be taken to the local maths department where they would try to diagnose us from first principles.
+Instead, we would ask that you take us to the local hospital where dozens of medical professionals have spent
+decades learning  large number of heuristics on how to treat people like us using drugs and machines like what
+they have locally available[^fifth].
+
+[^fifth]: example adapted from [Edward Feigenbaum](/REFS.md#Feigenbaum-1983).
+
+[Jill Larkin and her colleagues](/REFS.md#larkin-1980) characterize
+human expertise in terms of very small short term memory, or STM
+(used as a temporary scratch pad for current observation) and a
+very large long term memory, or LTM. The LTM holds separate tiny
+rule fragments that explore the contents of STM to say “when you
+see THIS, do THAT”. When an LTM rule triggers, its consequence can
+rewrite STM contents which, in turn, can trigger other rules.  The
+STM is very small (perhaps just  four to seven items[^ma]).  Novices
+perform worse than experts, says Larkin, when they fill up their
+STM with too many to-do’s where they plan to pause and reflect on
+what to do next.  Further, experts are experts, says Larkin because
+their LTM  patterns dictate what to do, without needing to pause
+for reflection.  Since, experts post far fewer to-do’s in their
+STMs, they complete their tasks faster because (a) they are less
+encumbered by excessive reflection and (b) there is more space in
+their STM to reason about new information.
+For example,
+[Nathaniel Phillips](/REFS.md#phillips-2017)
+ and his colleagues  discuss how models containing tiny rule fragments can be quickly comprehended by
+doctors in emergency rooms making rapid decisions; or by soldiers on guard making snap decisions about whether to fire or not on a potential enemy; or by stockbrokers making instant decisions about buying or selling stock. 
+
+[^ma]: Recently, [Wei Ma and colleagues](/REFS.md#ma-1024) used
+evidence from neuroscience and functional MRIs to argue that STM
+capacity might be better measured using other factors than "number
+of items". But even they concede that "the concept of a limited
+(STM) has considerable explanatory power for behavioral data".
 
 
+In summary, according to Larkin and Phillips and their colleagues, 
+  humans best understand some thing:
 
-Transparency
+- When they can _write_ that thing into their memory; i.e., when that thing comprises many small rule fragments;
+- Further, having an expert-level comprehension of some domain means having rules that can very quickly _applied_
+to reach  a decision, without clogging up memory.
+
+
+There are many ways to implement 
+
+That is, such transparency reduces the odds of criminal behavior.
+
+Also, from an ethical 
+
+explain:
+volumes, not points
+rule-based
+Local models (inferring irrelevancies)
+
+repair:
+Reweight the rows, reqeughet to columns, 
+Patch
+
+XXX is this the only way yo genra an explanation? Of course note. Leake 1991 advises that explanations
+are an inference process that needs to be tuned to the goals and background knowledge of the audience.
+In FFtrees, we use user goals to control discretization. and if we know the contepts famialr to
+the audoece,we might restrict the rule learning to jsut those attributes. e.g. rahul's just tused hte changing attributes
+And other audiences like maths. and sometimes aninformative visuslaization is enough.
+So all we are saying above is hat we have **one**way, not **the way** to make an exalantion.
 
 
 AI systems should be understandable
@@ -208,21 +369,11 @@ In our view, reliability is a statement of incrementally learning from examples 
 many ways to explain things. eg. visually
 
 explanation needed for debugging, accoutanability, reduce ods of freadualtna tbheavior
-(cause f the system's reasoning is opaque then the it is easier to hide fraud or malfeasance
+(cause f the system's reasoning is opaque then the it is easier to hide fraud or 
+malfeasance
 
 Ethtical software must  explain how it  makes its own conclusions since, otherwise,
 humans cannot check the decisions of the system against their own expecations.
-
-
-Transparency of AI is crucial as explained above.  Consider, for example, the situationwhere AI is used to control traffic signal timing along an arterial road in front of a set of shops.  The shopkeepers may demand to understand how the model works (and how to change it so that it works better).For example, they may be frustrated because it promotes fast travel rates, and thus discourages patronages.Moreover, if the signal timing leads to gridlock then the drivers will complain.
-
-Why Demand Comprehensibility? This paper assumes that better data mining algorithms are better at explaining their models to humans. But is that always the case?
-The obvious counter-argument is that if no human ever needs to understand our audited model, then it does not need to be com- prehensible. For example, a neural net could control the carburetor of an internal combustion engine since that carburetor will never dispute the model or ask for clarification of any of its reasoning.
-On the other hand, if a model is to be used to persuade software engineers to change what they are doing, it needs to be comprehen- sible so humans can debate the merits of its conclusions. Several researchers demand that software analytics models needs to be expressed in a simple way that is easy for software practitioners to interpret [16, 39, 45]. According to Kim et al. [32], software an- alytics aim to obtain actionable insights from software artifacts that help practitioners accomplish tasks related to software de- velopment, systems, and users. Other researchers [64] argue that for software vendors, managers, developers and users, such com- prehensible insights are the core deliverable of software analytics. Sawyer et al. comments that actionable insight is the key driver for businesses to invest in data analytics initiatives [62]. Accordingly, much research focuses on the generation of simple models, or make blackbox models more explainable, so that human engineers can understand and appropriately trust the decisions made by software analytics models [1, 19].
-If a model is not comprehensible, there are some explanation algorithms that might mitigate that problem. For example:
-• In secondary learning, the examples given to a neural network are used to train a rule-based learner and those learners could be said to “explain” the neural net [13].
-• In contrast set learning for instance-based reasoning, data is clustered and users are shown the difference between a few exemplars selected from each cluster [35].
-Such explanation facilities are post-processors to the original learn- ing method. An alternative simpler approach would be to use learn- ers that generate comprehensible models in the first place.
 
 
 XXXX note that after transparancey comes accountability. If a system explains its internal reasoning,

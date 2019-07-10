@@ -24,6 +24,10 @@ that is a symmbol or a number triggers the creation of a new
 This code uses `__add__` and `__sub__` so items can be
 added/removed using `+` and `-` (see [okcol](okcol) for examples).
 
+Design detaols: note that `Num` and `Sym` are not
+sub-classes of `Col` since the relationship is that `Col` _has_
+zero or one `Num` or `Sym`.
+
 """
 class Col:
   def __init__(i,inits=[],txt="",pos=0):
@@ -42,27 +46,12 @@ class Col:
     if x != my.ignore and i.has: i.has - x
 """
 
-### Thing
-
-`Thing`s are generalizations of `Sym`s and `Num`s.
-
-"""
-class Thing:
-  def simpler(i,j,k):
-    "is the expected delta of j,k less than i"
-    n   = j.n + k.n
-    assert i.n == n, "sub things not of same size"
-    new = j.n/n * j.delta() + k.n/n * k.delta()
-    old = i.delta() * (1 - my.simplerBy)
-    return new < old
-"""
-
 `Num`s and `Sym`s
 
 ### Num
 
 """
-class Num(Thing):
+class Num:
   "Track numbers seen in a column"
   def __init__(i,inits=[]):
     i.n,i.mu,i.m2 = 0,0,0
@@ -105,7 +94,7 @@ have a stopping rule of `i.n` > 5 (say).
 ### Sym
 
 """
-class Sym(Thing):
+class Sym:
   "track symbols seen in a column"
   def __init__(i,inits=[]):
     i.n,i.bag = 0,{}
@@ -139,12 +128,20 @@ class Sym(Thing):
 
 """
 
-## Questions
+## Check Your Comprehension 
 
-- What would happen if the above `__add__` and `__sub__` methods neglected to reset the memo store?
-- Match the X to the Y following: X={standard deviation, entropy}  apply to Y={symbolic and numeric}quanities.
+- Write down the equation for entropy, standard deviation.
 - What is the standard deviation of a list with one item?
 - What is the entropy of a list of 10 idenitical items?
+- Consider the following  boxes. Intuitively, which is most/least diverse? Check your intution: on an x-y
+  plot, lay out box 1,2,3,4,5 on the x-axis and compute their entropy (recorded on the y-axis). Where is
+  entropy maximal? Minimal? FYI: log2(1)=0, log2(0.75)=-0.42, log2(0.5)=-1, log2(0.25)=-2.
+  - box1: [apple*4] 
+  - box2: [apple*3,orange*1] 
+  - box3: [apple*2,orange*2] 
+  - box4: [apple*1,orange*3] 
+  - box5: [orange*4]
+- Match the X to the Y following: X={standard deviation, entropy}  apply to Y={symbolic and numeric}quanities.
 - What is the _same_ about standard deviation and entropy?
 - What is  _different _ about standard deviation and entropy?
 - According to Cohen,
@@ -153,5 +150,6 @@ class Sym(Thing):
   define a 
   `negliable` parameter of 30\%). 
   Add a test function to `okcol.py` that uses that `cohen` method
+- What would happen if the above `__add__` and `__sub__` methods neglected to reset the memo store?
 
 """
