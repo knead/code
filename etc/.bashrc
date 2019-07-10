@@ -38,9 +38,9 @@ gfig() {
 
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias get='git pull'
+alias get='gfig; git pull'
 alias grep='grep --color=auto'
-alias put='git commit -am saving; git push; git status'
+alias put='gfig; git commit -am saving; git push; git status'
 alias vi="vim -u $Ell/etc/.vimrc "
 alias tmux="$(which tmux) -f $Ell/etc/.tmuxrc "
 

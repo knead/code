@@ -1,15 +1,5 @@
 # Ethically-aligned Design
 
-as asdd asd asd as asas
-as asdd asd asd as asas
-as asdd asd asd as asas
-as asdd asd asd as asas
-as asdd asd asd as asas
-as asdd asd asd as asas
-as asdd asd asd as asas
-as asdd asd asd as asas
-as asdd asd asd as asas
-
 
 It is the duty of anyone building software
 to strive to deliver software that is ethically acceptable. 
