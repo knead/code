@@ -123,10 +123,10 @@ The IEEE makes the following points about A/IS:
 8. Competence: A/IS creators shall specify and operators shall adhere to the knowledge and 
    skill required for safe and effective operation.
 
-All these points are important, albeit a little hard to operationalize.  For example, the last point talks
-more about the developers than the developed software. 
-Microsoft offers its own 
-Another list of principles, this time from Microsoft,  is perhaps more operational:
+All these points are important, albeit a little hard to operationalize.
+For example, the last point talks more about the developers than
+the developed software.  Microsoft offers its own Another list of
+principles, this time from Microsoft,  is perhaps more operational:
 
 <ol type="a">
 <li z=a> Transparency: AI systems should be understandable:
@@ -142,13 +142,14 @@ One way to map these two lists together is as follows
 
 |                | a=Transparency | b=Fairness | c=Inclusiveness | d=Rel/Safety | e=Priv/Secure | f=Accountability |
 |----------------|----------------|------------|-----------------|--------------|---------------|------------------|
-| 1=Human Rights |                |            |     &#10004;    |  &#10004;    | &#10004;      |                  |
+| 1=Human Rights |                |  &#10004;  |     &#10004;    |  &#10004;    | &#10004;      |                  |
 | 2=Well-being   |                |  &#10004;  |                 |  &#10004;    |               |                  |
 |3=Data Agency   |                |            |     &#10004;    |              | &#10004;      |                  |
 |4=Effectiveness |                |            |                 |  &#10004;    | &#10004;      |  &#10004;        |
 |5=Transparency  |   &#10004;     |  &#10004;  |                 |              |               |                  |
 |6=Accountability|   &#10004;     |  &#10004;  |                 |  &#10004;    |               |  &#10004;        |
-|7=Competence   |   &#10004;     |            |                 |  &#10004;    |               |                  |
+|7=AwareOfMisuse |                |  &#10004;  |                 |  &#10004;    |               |                  |
+|8=Competence    |                |            |                 |              |               |                  |
 
 **Table 1: Ethical principles from IEEE and Microsoft**{: style="text-align: center"}
 

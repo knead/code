@@ -117,3 +117,5 @@ au BufRead,BufNewFile *.py setlocal textwidth=60
 map Z 1z=
 set spell spelllang=en_us
      set spellsuggest=fast,20 "Don't show too much suggestion for spell check
+
+nn <F7> :setlocal spell! spell?<CR>
