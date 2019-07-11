@@ -4,7 +4,7 @@
 
 """
 from main import my
-from memo import memos
+from memo import memos, fresh
 from lib import nump,items
 import math
 """
@@ -22,7 +22,7 @@ that is a symbol or a number triggers the creation of a new
 `Num` or `Sym` for the `i.has` variable.
 
 """
-class Col:
+class Col(Pretty):
   def __init__(i,inits=[],txt="",pos=0,has=None):
     i.txt,i.pos,i.has = txt,pos,has() if has else None
     i + inits
@@ -46,7 +46,7 @@ class Col:
 """
 
 @memos # turns the method sd0 into a property i.sd
-class Num:
+class Num(Pretty):
   "Track numbers seen in a column"
   def __init__(i,inits=[]):
     i.n,i.mu,i.m2 = 0,0,0
@@ -56,16 +56,16 @@ class Num:
   def expect(i): return i.mu
   def sd0(i):
     return 0 if i.n < 2 else (i.m2/(i.n - 1 + 10**-32))**0.5
+  @fresh # this method updates state, so  blast the memos
   def __add__(i,x):
-    i._memo= {} # state update happening. So blast the memos
     if x < i.lo: i.lo = x
     if x > i.hi: i.hi = x
     i.n  += 1
     d     = x - i.mu
     i.mu += d/i.n
     i.m2 += d*(x - i.mu)
+  @fresh # this method updates state, so  blast the memos
   def __sub__(i,x):
-    i._memo={} # state update happening. So blast the memos
     if i.n < 2:
       i.n,i.mu,i.m2 = 0,0,0
     else:
@@ -88,19 +88,19 @@ have a stopping rule of `i.n` > 5 (say).
 
 """
 @memos
-class Sym:
+class Sym(Pretty):
   "track symbols seen in a column"
   def __init__(i,inits=[]):
     i.n,i.bag = 0,{}
     [i + x for x in inits]
   def delta(i) : return i.ent()
   def expect(i): return i.mode
+  @fresh
   def __add__(i,x):
-    i._memo= {} # state update happening. Blast the memos
     i.n += 1
     i.bag[x] = i.bag.get(x,0) + 1
+  @fresh
   def __sub__(i,x):
-    i._memo={} # state update happening. So blast the memos
     if x in i.bag:
       i.n -= 1
       i.bag[x] -= 1
@@ -140,13 +140,14 @@ class Sym:
 - What is the _same_ about standard deviation and entropy?
 - What is  _different _ about standard deviation and entropy?
 - According to Cohen,
-  a _small effect_ (i.e. of negligible size) is less that 30% of the standard deviation.
+  a _small effect_ (i.e. Of negligible size) is less that 30% of the standard deviation.
   Add a method called `cohen` to `Num` class that returns a _negligible_ amount_ (edit `main.py` to
   define a 
   `negligible` parameter of 30\%). 
   Add a test function to `okcol.py` that uses that `cohen` method
 - What does the `@memos` class decorator do?
+- What does the `@fresh` method decorator do?
 - What would happen if the above `__add__` and `__sub__` methods 
-  neglected to reset the `_memo` store?
+  neglected to `@fresh`en method?
 
 """

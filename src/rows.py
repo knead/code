@@ -3,11 +3,12 @@
 # row.py: a place to store cells
 
 """
-from row import Row
+from row  import Row
 from memo import memos
+from lib  import Pretty
 
 @memos
-class Rows:
+class Rows(Pretty):
   def __init__(i,name=None, headers=[]):
     "build the table, using the text in the headers"
     i.headers= headers
@@ -22,7 +23,7 @@ class Rows:
     "add a row, update the column headers"
     [col + cell for col,cell in zip(i.cols,cells)]
     row = Row(cells)
-    i.rows += [row]
+    i.all += [row]
     return row
   def clone(i):
     "return a new data table that is like me"
@@ -37,7 +38,8 @@ class Rows:
   def syms0():  return set(i.cols) - i.nums
   def less0(i): return set(c for c in i.cols if my.less in c.txt)
   def more0(i): return set(c for c in i.cols if my.more in c.txt)
-  def dep0(i):  return i.less & i.more & set([i.klass()])
+  def dep0(i):  return i.less & i.more & set([i.klass])
   def indep0(i):return set(i.cols) - i.dep
   def goals0(i):return i.less & i.more 
+
 

@@ -13,18 +13,19 @@ best goals.
 Rows will know how to mutate their cells, soon.
 
 """
-from memo import memos
+from memo import memos,fresh
+from lib  import Pretty
 
 @memos
-class Row:
+class Row(Pretty):
   id = 0
   def __init__(i,lst):
     i.cells = lst
-    i.id = row.id = row.id + 1
+    i.id = Row.id = Row.id + 1
+  @fresh
+  def __setitem__(i, k, v): i.cells[k] = v
   def __getitem__(i, k   ): return i.cells[k]
-  def __setitem__(i, k, v): i.memo={}; i.cells[k] = v
-  def __repr__(i)         : return 'row%s' % i.cells
-  def doms1(i,rows):
+  def doms0(i,rows):
     n = my.someDom
     return sum([ i.dominates( any(rows.all), rows)
                  for _ in range(n) 

@@ -49,24 +49,26 @@ Also, the decorate adds
 `i._memo={}` to the initialization method.
 
 """
-def memos(k,what='0',decorator=memo0):
+def memos(k):
+  setattr(k, "__init__", fresh(getattr(k,"__init__")))
   memoPrim(k,'0',memo0)
   memoPrim(k,'1',memo1)
-  setattr(k, "__init__", memoInit(getattr(k,"__init__")))
   return k
 
-def memoInit(f):
+def memoPrim(k, what='0', decorator=memo0):
+  "Turn  methods ending with 'what' into a memoed property"
+  for f in dir(k):
+    if callable(getattr(k, f)):
+      if f[-1] == what:
+        setattr(k,f[:-1], property(decorator(getattr(k,f))))
+
+def fresh(f):
+  "Add `_memo` initialization to the constructor"
   @wraps(f)
   def g(i,*lst,**kw):
     i._memo={}
     f(i,*lst,**kw)
   return g
-
-def memoPrim(k, what='0', decorator=memo0):
-  for f in dir(k):
-    if callable(getattr(k, f)):
-      if f[-1] == what:
-        setattr(k,f[:-1], property(decorator(getattr(k,f))))
 
 """
 

@@ -1,5 +1,6 @@
 # Ethically-aligned Design
 
+XXX lime. Limits. Domain goals, cluster, local rule learning.
 
 It is the duty of anyone building software
 to strive to deliver software that is ethically acceptable. 

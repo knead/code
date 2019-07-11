@@ -30,8 +30,9 @@ class Defaults:
   def __init__(i):
     ## system settings (do not change)
     # misc
-    i.inf    = 10**32
-    i.tiny   = 1/i.inf
+    i.inf     = 10**32
+    i.tiny    = 1/i.inf
+    i.private = "_"
     # characters in data,header
     i.ignore = "?"   # column to ignore
     i.less   = "<"   # a numeric goal, to be minimized
@@ -71,7 +72,7 @@ Some files `X.py` have demo/test code in `okX.py`
 - To test the whole system, run `python3 ok.py`. When loaded as a top-level module,
   this code loads all the "okX.py" files, then runs the `ok()` functions.
 
-## How to Format Code
+## How to Follow this Code's Conventions
 
 All these classes start with an uppercase letters.
 
@@ -80,6 +81,16 @@ All this  code is laid out to be read on mobile devices; hence:
 - All code is 60 characters wide.
 - This code  does not use `self` but rather `i` to point back to the current instance..
 - All tabs are expanded to two spaces.
+
+Any sub-class of `Pretty` (defined in the `lib` module) will print itself as key=value
+pairs inside curly braces.
+
+If a class has derived properties, call the method that derives the property (say)
+`xxx0` then wrap the class in `@memos`. This will automatically make `xxx` a property
+of instances of that class. Further, that method will be memo-ed such that if
+the property is requested 100 times, it will get computed once and cached (inside `i._memo`)
+and returned 100 times from the cache. If a method makes some change that makes
+the memos stale, wrap that method in `@fresh`.
 
 ## How to Document
 
