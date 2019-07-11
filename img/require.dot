@@ -1,0 +1,76 @@
+digraph {
+ rankdir=LR
+
+
+{rank=same; cluster; goals; stream; stable;}
+{rank=same; trans1; count1; effect; rite; data; nomiuse;well}
+{trans; fair; safe;} -> count
+fair -> trans [label=21]
+{safe;priv; count;} -> comp [label=20]
+{inc; priv; } -> data [label=19]
+alearn [label="active\nlearning" shape=none]
+goals  [shape=none]
+opt  [label=optimization shape=none]
+stream  [label=streaming shape=none]
+growth  [label="performance\ngrowth curves" shape=none]
+compress  [label="compress" shape=none]
+env  [label="certification\nenvelope" shape=none]
+repair  [label="repair" shape=none]
+sharing  [shape=none]
+transfer  [shape=none]
+cluster  [shape=none]
+context  [shape=none]
+explain  [shape=none]
+monitor  [shape=none]
+stable  [shape=none]
+obs [label=obsfication shape=none]
+anomaly  [label="anomaly\ndetection"shape=none]
+fftree  [shape=none label="rule\nlearner"] 
+
+fftree  -> opt [label=20] 
+stable -> safe [label=19]
+{cluster; compress -> obs;} -> priv [label=18]
+{safe; fair;} -> well [label=17]
+{safe; fair; priv; inc; } -> rite [label=16]
+stream -> anomaly -> monitor [label=15]
+stream -> monitor -> comp [label=14]
+
+cluster -> { fftree;} [label=13]
+{safe; fair;} -> nomiuse [label=12]
+goals -> inc [label=11]
+{stream; repair;} -> alearn -> inc [label=10]
+
+{fftree;  } -> explain  -> {trans;} [label=9]
+cluster -> compress [label=8]
+cluster -> context -> comp [label=7]
+sharing -> comp [label=6]
+
+compress -> transfer -> sharing [label="7a"]
+stream -> repair -> comp [label=5]
+compress -> env -> comp [label=4]
+goals -> comp [label=0]
+goals -> opt [label=1]
+{goals;opt;} -> fair [label=2]
+stream -> growth -> comp [label=3]
+trans [label="Transparency" shape=box style=filled fontcolor=white fillcolor=black]
+fair [label="Fairness" shape=box style=filled fontcolor=white fillcolor=black]
+inc [label="Inclusiveness" shape=box style=filled fontcolor=white fillcolor=black]
+safe [label="Reliability\n&Safety" shape=box style=filled fontcolor=white fillcolor=black]
+priv [label="Privacy\n&Security" shape=box style=filled fontcolor=white fillcolor=black]
+count [label="Accountability" shape=box style=filled fontcolor=white fillcolor=black]
+
+rite [label="Human\nRights" shape=box style=filled fillcolor=gray]
+well [label="Well\nBeing" shape=box style=filled fillcolor=gray]
+data [label="Data\nAgency" shape=box style=filled fillcolor=gray]
+effect [label="Competence" shape=box style=filled fillcolor=gray]
+trans1 [label="Transparency" shape=box style=filled fillcolor=gray]
+count1 [label="Accountability" shape=box style=filled fillcolor=gray]
+nomiuse [label="Aware of\nMisuse" shape=box style=filled fillcolor=gray]
+comp [label="Effectiveness" shape=box style=filled fillcolor=gray]
+
+
+trans-> trans1 
+count -> count1 
+
+}
+
