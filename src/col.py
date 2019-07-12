@@ -18,8 +18,8 @@ of the column and the column's name (the `txt`).
 `Col`umns can be initialized with an `inits` column.  Internally,
 `Col`umns keep a `has` variable which is initially empty. As things
 arrive, (if they are not `my.ignore`), then the first thing
-that is a symbol or a number triggers the creation of a new
-`Num` or `Sym` for the `i.has` variable.
+that is a symbol or a number triggers the creation of a new `Num` or `Sym` for the `i.has` variable.
+
 
 """
 class Col(Pretty):
@@ -39,7 +39,6 @@ class Col(Pretty):
     if x != my.ignore and i.has: i.has - x
 """
 
-`Num`s and `Sym`s
 
 ### Num
 
@@ -131,14 +130,14 @@ class Sym(Pretty):
 - Consider the following  boxes. Intuitively, which is most/least diverse? Check your intution: on an x-y
   plot, lay out box 1,2,3,4,5 on the x-axis and compute their entropy (recorded on the y-axis). Where is
   entropy maximal? Minimal? FYI: log2(1)=0, log2(0.75)=-0.42, log2(0.5)=-1, log2(0.25)=-2.
-  - box 1: [apple*4] 
-  - box 2: [apple*3,orange*1] 
-  - box 3: [apple*2,orange*2] 
-  - box 4: [apple*1,orange*3] 
-  - box 5: [orange*4]
+  - box 1: [apple\*4] 
+  - box 2: [apple\*3,orange\*1] 
+  - box 3: [apple\*2,orange\*2] 
+  - box 4: [apple\*1,orange\*3] 
+  - box 5: [orange\*4]
 - Match the X to the Y following: X={standard deviation, entropy}  apply to Y={symbolic and numeric}quantities.
 - What is the _same_ about standard deviation and entropy?
-- What is  _different _ about standard deviation and entropy?
+- What is  _different_ about standard deviation and entropy?
 - According to Cohen,
   a _small effect_ (i.e. Of negligible size) is less that 30% of the standard deviation.
   Add a method called `cohen` to `Num` class that returns a _negligible_ amount_ (edit `main.py` to
@@ -148,6 +147,6 @@ class Sym(Pretty):
 - What does the `@memos` class decorator do?
 - What does the `@fresh` method decorator do?
 - What would happen if the above `__add__` and `__sub__` methods 
-  neglected to `@fresh`en method?
+  neglected to `@fresh`en?
 
 """
