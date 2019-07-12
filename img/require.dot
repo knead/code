@@ -71,8 +71,12 @@ Hemce we say:
 
     goals -> reliability&safety
 
+XXX an say we are inclusive unless we underwtadnteh different goals of the different stakeholders. so knowledge of goals is key
+
+XXX how tog et goals" the timmmatrix
 */ 
     goals -> safe [label=110] 
+    goals -> inc [label=11] 
 
 /*
 Many learning systems have goals hardwired into them (e.g. reduce mean-squared error or reduce entropy).
@@ -119,7 +123,6 @@ equations that reduce the difference between their predictions and the actual va
 data set.
 
 */
-goals -> inc [label=11] 
 goals -> comp [label=0] 
 {goals;opt;} -> fair [label=2]
 
