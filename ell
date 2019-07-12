@@ -2,6 +2,22 @@
 
 # usage: sh ell
 
+GET=$(which wget)
+ADD=$(git)
+
+if [ -z "$GET" [; then echo "Missing: wget"; exit; fi
+if [ -z "$ADD" [; then echo "Missing: git"; exit; fi
+
+FROM=https://raw.githubusercontent.com/se4ai/code/master/etc
+
 export Ell=$(git rev-parse --show-toplevel)
+
+mkdir -p $Ell/etc
+for f in .bashrc .vimrc .tmuxrc; do
+	if [ ! -f "$Ell/etc/$f" ]; then
+		$GET -O $Ell/etc/$f $FROM/$f
+		$ADD add $Ell/etc/$f
+	fi
+done
 
 bash --init-file $Ell/etc/.bashrc  -i
